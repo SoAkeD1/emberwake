@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { IconSprite } from "@/components/icon-sprite";
 import { GateForm } from "@/components/gate-form";
 
 export default function Home() {
@@ -8,8 +7,6 @@ export default function Home() {
       <a className="skip-link" href="#signup">
         Skip to sign up
       </a>
-
-      <IconSprite />
 
       <header className="nav">
         <span className="nav__wordmark">Emberwake</span>
