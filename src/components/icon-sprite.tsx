@@ -141,6 +141,40 @@ export function IconSprite() {
           <circle cx="12" cy="12" r="1.6" fill="currentColor" />
           <circle cx="12" cy="19" r="1.6" fill="currentColor" />
         </symbol>
+        <symbol id="i-candle" viewBox="0 0 24 24">
+          <path
+            d="M12 2.4c0 1.8-1.6 2.4-1.6 4.3 0 1.1.7 1.7 1.6 1.7s1.6-.6 1.6-1.7c0-1.9-1.6-2.5-1.6-4.3z"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M9.6 8.8h4.8v11.4a2.4 2.4 0 0 1-2.4 2.4 2.4 2.4 0 0 1-2.4-2.4V8.8z"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          <path d="M9.6 13h4.8" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        </symbol>
+        <symbol id="i-bow" viewBox="0 0 24 24">
+          <path d="M6.6 3.4c-3 3-3 14.2 0 17.2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M6.6 3.4v17.2" fill="none" stroke="currentColor" strokeWidth="1.3" />
+          <path
+            d="M3.2 12h10.4M11 8.6l2.6 3.4-2.6 3.4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </symbol>
+        <symbol id="i-staff" viewBox="0 0 24 24">
+          <circle cx="12" cy="5" r="2.4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M12 7.6V21.4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M8.4 21.4h7.2" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </symbol>
         <symbol id="i-fil" viewBox="0 0 40 40">
           <path
             d="M0 14C0 6 6 0 14 0M0 20C0 9 9 0 20 0M6 6l4 4"

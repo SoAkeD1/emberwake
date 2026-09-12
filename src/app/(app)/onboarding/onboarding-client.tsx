@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ATTRIBUTES, BASE_RUNES } from "@/lib/game/constants";
 import { CLASS_DEFS, FIRST_STEPS_CHECKLIST, STARTER_QUESTS } from "@/lib/game/sample-data";
+import { ClassEmblem } from "./class-emblem";
 import styles from "./onboarding.module.css";
 
 export function OnboardingClient() {
@@ -30,7 +31,7 @@ export function OnboardingClient() {
               onClick={() => setCls(i)}
             >
               <span className={styles.classArt} aria-hidden="true">
-                CLASS ART HERE
+                <ClassEmblem name={c.name as "Knight" | "Scholar" | "Ranger" | "Pilgrim" | "Sentinel"} selected={selected} />
               </span>
               <span className={styles.classInfo}>
                 <span className={styles.className}>{c.name}</span>
