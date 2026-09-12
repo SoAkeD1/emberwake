@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Emberwake
 
-## Getting Started
+A habit tracker themed as a grim, dark-fantasy Soulslike RPG. Habits become quests; completing one earns Runes and raises attributes; streaks are Bonfires; missed days drain Ember Flasks.
 
-First, run the development server:
+Built for the Life RPG project brief — see [`docs/`](./docs) for the full design spec and glossary.
+
+## Status
+
+Early scaffold. The Gate (landing hero) is implemented as static markup; auth, the quest engine, and the remaining screens (First Steps, The Camp, Chronicle, Merchant, Hall of Relics, Moments) are not built yet.
+
+## Tech stack
+
+- **Frontend:** Next.js 16 (App Router, TypeScript), Tailwind CSS, Framer Motion
+- **Backend:** Next.js Route Handlers
+- **Database:** PostgreSQL via Prisma ORM ([`prisma/schema.prisma`](./prisma/schema.prisma))
+- **Auth:** Auth.js (credentials + Google) — not wired up yet
+- **Validation:** Zod
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env   # then fill in DATABASE_URL, AUTH_SECRET, Google OAuth keys
+npx prisma generate
+npx prisma migrate dev --name init
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See [`.env.example`](./.env.example) for the full list:
 
-## Learn More
+| Variable | Purpose |
+| --- | --- |
+| `DATABASE_URL` | PostgreSQL connection string |
+| `AUTH_SECRET` | Auth.js session signing secret |
+| `NEXTAUTH_URL` | Base URL of the deployed app |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | Google OAuth sign-in |
 
-To learn more about Next.js, take a look at the following resources:
+## Database
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The schema in [`prisma/schema.prisma`](./prisma/schema.prisma) models: `User`, `Character` (level, runes, health/focus, streak, ember flasks), `AttributeStat` (Vigor/Mind/Endurance/Strength/Dexterity), `Quest` (Vigils/Oaths/Bounties), `QuestCompletion` (permanent history log used for undo and anti-cheat), `DayLog`, `Item`/`InventoryItem` (the Merchant + Armory), `Relic`/`UserRelic` (Hall of Relics), `Indulgence`, and `Raven` (notifications).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All game math (runes, leveling, streaks, damage) runs server-side — the client only ever sends intent.
 
-## Deploy on Vercel
+## Assets
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Design reference and imagery came from a Claude Design handoff (`docs/design-handoff/`) — see that folder's README for full design tokens, copy, and motion specs.
