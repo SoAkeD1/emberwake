@@ -1,0 +1,120 @@
+.main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 44px 26px 90px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  composes: ornate ornate--deep from global;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.stage {
+  height: 156px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  padding: 0 16px;
+}
+.stageText {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+.body {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.desc {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+.beats {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 14px 16px;
+  background: #191512;
+  border: 1px solid #231d17;
+  border-radius: 2px;
+}
+.beat {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.beatTime {
+  flex: none;
+  width: 52px;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--gold-dim);
+  font-variant-numeric: tabular-nums;
+}
+.beatWhat {
+  flex: 1;
+  font-size: 15.5px;
+  color: var(--gold);
+  line-height: 1.45;
+}
+.playBtn {
+  margin-top: auto;
+  min-height: 48px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: linear-gradient(var(--gold-bright), var(--gold));
+  border: 1px solid var(--gold-bright);
+  border-radius: 1px;
+  cursor: pointer;
+}
+.playBtn:hover,
+.playBtn:focus-visible {
+  background: linear-gradient(#f1e3bd, #d8bc84);
+}
+
+.footnote {
+  margin: 30px auto 0;
+  max-width: 640px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--gold-dim);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.footnote em {
+  color: var(--text-secondary);
+  font-style: normal;
+}

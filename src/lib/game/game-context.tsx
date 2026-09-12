@@ -150,6 +150,9 @@ export interface GameActions {
   dismissAscend: () => void;
   riseAgain: () => void;
   forgeQuest: (quest: Omit<Quest, "id" | "streak" | "done" | "meta">) => void;
+  /** Moments screen: replays the takeover without touching real progress. */
+  previewAscension: (level: number) => void;
+  previewFallen: () => void;
 }
 
 const GameStateContext = createContext<GameState | null>(null);
@@ -239,9 +242,23 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
+  const previewAscension = useCallback((level: number) => dispatch({ type: "ASCEND", level }), []);
+  const previewFallen = useCallback(() => dispatch({ type: "FALLEN" }), []);
+
   const actions = useMemo<GameActions>(
-    () => ({ complete, virtue, vice, spend, allocate, dismissAscend, riseAgain, forgeQuest }),
-    [complete, virtue, vice, spend, allocate, dismissAscend, riseAgain, forgeQuest]
+    () => ({
+      complete,
+      virtue,
+      vice,
+      spend,
+      allocate,
+      dismissAscend,
+      riseAgain,
+      forgeQuest,
+      previewAscension,
+      previewFallen,
+    }),
+    [complete, virtue, vice, spend, allocate, dismissAscend, riseAgain, forgeQuest, previewAscension, previewFallen]
   );
 
   return (

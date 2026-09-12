@@ -1,0 +1,333 @@
+.main {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 44px 26px 90px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.heading {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lede {
+  margin: 0 auto 40px;
+  max-width: 520px;
+  text-align: center;
+  font-size: 19px;
+  font-style: italic;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.classGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 46px;
+}
+@media (max-width: 900px) {
+  .classGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.classCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  text-align: center;
+  background: #1a1714;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.16s ease, border-color 0.16s ease;
+}
+.classCard:hover,
+.classCard:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+}
+.classCardSelected {
+  background: linear-gradient(#2a2318, #1e1a14);
+  border-color: var(--gold-dim);
+  box-shadow: inset 0 0 0 2px var(--gold), inset 0 0 34px rgba(201, 170, 113, 0.14);
+}
+.classArt {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 150px;
+  background: repeating-linear-gradient(34deg, var(--raised) 0 6px, #231d17 6px 12px);
+  border-bottom: 1px solid var(--border);
+  color: var(--gold-dim);
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  padding-bottom: 11px;
+}
+.classInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 16px 12px 18px;
+  width: 100%;
+}
+.className {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.classAttr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.classDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 1px 0;
+}
+.classItem {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.oathsPanel {
+  composes: ornate ornate--deep from global;
+  padding: 26px 26px 24px;
+}
+.panelEyebrow {
+  margin: 0 0 6px;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.panelHeading {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.panelSub {
+  margin: 0 0 22px;
+  font-size: 15.5px;
+  font-style: italic;
+  color: var(--gold-dim);
+}
+
+.starterList {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.starterRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  min-height: 56px;
+  padding: 12px 16px;
+  background: #191512;
+  border: 1px solid #231d17;
+  border-left: 3px solid var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.starterRow:hover,
+.starterRow:focus-visible {
+  border-color: var(--gold-dim);
+}
+.starterRowOn {
+  background: #241e19;
+  border-color: var(--border-mid);
+}
+.starterCheck {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-mid);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 13px;
+}
+.starterCheckOn {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+.starterBody {
+  flex: 1;
+  min-width: 0;
+}
+.starterTitle {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.starterTitleOn {
+  color: var(--gold-bright);
+}
+.starterKind {
+  display: block;
+  font-size: 15.5px;
+  color: var(--gold-dim);
+  margin-top: 3px;
+}
+.starterRunes {
+  flex: none;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.enterButton {
+  margin-top: 26px;
+  width: 100%;
+  min-height: 50px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: linear-gradient(var(--gold-bright), var(--gold));
+  border: 1px solid var(--gold-bright);
+  border-radius: 1px;
+  cursor: pointer;
+}
+.enterButton:hover,
+.enterButton:focus-visible {
+  background: linear-gradient(#f1e3bd, #d8bc84);
+}
+
+.checklistPanel {
+  composes: plain-panel from global;
+  padding: 24px;
+}
+.checklistTitle {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.checkMark {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-mid);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 12px;
+}
+.checkMarkDone {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+.checkLabel {
+  flex: 1;
+  font-size: 16.5px;
+  color: var(--parchment);
+}
+.checkLabelDone {
+  color: var(--gold-dim);
+  text-decoration: line-through;
+}
+.rewardBlock {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #231d17;
+}
+.rewardHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--gold);
+}
+.rewardHead span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.rewardText {
+  margin: 0;
+  font-size: 16.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.rewardText em {
+  color: var(--gold);
+  font-style: normal;
+}

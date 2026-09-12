@@ -8,8 +8,6 @@ import type { Attribute, QuestType } from "@/lib/game/types";
 import { StatBar } from "@/components/stat-bar";
 import { RavenPanel } from "@/components/raven-panel";
 import { ForgeQuestModal } from "@/components/forge-quest-modal";
-import { AscensionModal } from "@/components/ascension-modal";
-import { FallenModal } from "@/components/fallen-modal";
 import { QuestCard } from "./quest-card";
 import styles from "./camp.module.css";
 
@@ -26,7 +24,7 @@ const SUB_FILTERS: Record<QuestType, string[]> = {
 
 export function CampClient() {
   const state = useGameState();
-  const { allocate, spend, dismissAscend, riseAgain } = useGameActions();
+  const { allocate, spend } = useGameActions();
   const [tab, setTab] = useState<QuestType>("vigil");
   const [sub, setSub] = useState(0);
   const [search, setSearch] = useState("");
@@ -293,12 +291,6 @@ export function CampClient() {
       </div>
 
       {forgeOpen && <ForgeQuestModal onClose={() => setForgeOpen(false)} />}
-      {state.ascendLevel > 0 && <AscensionModal level={state.ascendLevel} onDismiss={dismissAscend} />}
-      {state.fallen && <FallenModal onRiseAgain={riseAgain} />}
-
-      <div aria-live="polite" aria-atomic="true" className="visually-hidden">
-        {state.announce}
-      </div>
     </main>
   );
 }

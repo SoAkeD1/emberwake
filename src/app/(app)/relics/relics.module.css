@@ -1,0 +1,112 @@
+.wrap {
+  position: relative;
+}
+.bgPhoto {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 28%;
+  opacity: 0.85;
+}
+.bgScrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(23, 19, 16, 0.35), rgba(23, 19, 16, 0.55) 45%, rgba(23, 19, 16, 0.78) 92%);
+}
+
+.main {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 44px 26px 80px;
+}
+
+.groupSection {
+  margin-bottom: 44px;
+}
+.groupTitle {
+  margin: 0 0 18px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  border-bottom: 1px solid #231d17;
+  padding-bottom: 10px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
+  gap: 18px;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 26px 18px;
+  border-radius: 2px;
+  text-align: center;
+  background: #1a1714;
+  border: 1px solid var(--border);
+}
+.cardUnlocked {
+  background: linear-gradient(#2a2318, #1e1a14);
+  border-color: var(--gold-dim);
+}
+.disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: #211c17;
+  box-shadow: inset 0 0 0 1px var(--border), 0 0 0 1px var(--bg);
+}
+.discUnlocked {
+  background: radial-gradient(#3a2f1d, #221c14);
+  box-shadow: inset 0 0 0 1px var(--gold-dim), 0 0 0 1px var(--bg);
+}
+.name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  line-height: 1.35;
+}
+.nameUnlocked {
+  color: var(--gold-bright);
+}
+.criteria {
+  font-size: 15.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.progressTrack {
+  width: 100%;
+  height: 5px;
+  background: var(--well);
+  box-shadow: inset 0 0 0 1px var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.progressFill {
+  position: absolute;
+  inset: 0;
+  background: var(--gold-dim);
+}
+.claimed {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}

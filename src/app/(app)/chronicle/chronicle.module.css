@@ -1,0 +1,218 @@
+.main {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 44px 26px 90px;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 26px;
+}
+@media (max-width: 700px) {
+  .statGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.statTile {
+  composes: plain-panel from global;
+  padding: 20px;
+  text-align: center;
+}
+.statValue {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--gold-bright);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.statLabel {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-top: 9px;
+}
+
+.heatSection {
+  composes: ornate ornate--deep from global;
+  padding: 26px;
+  margin-bottom: 26px;
+}
+.heatHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.legendSwatch {
+  width: 12px;
+  height: 12px;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.heatmap {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.heatWeek {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.heatCell {
+  width: 15px;
+  height: 15px;
+  box-shadow: inset 0 0 0 1px #241e19;
+  flex: none;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+}
+.panel {
+  composes: plain-panel from global;
+  padding: 26px;
+}
+.panelTitle {
+  margin: 0 0 22px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  height: 170px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.chartBar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+}
+.chartValue {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  color: var(--gold-dim);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 5px;
+}
+.chartFill {
+  width: 100%;
+  box-shadow: inset 0 0 0 1px rgba(21, 18, 16, 0.6);
+}
+.chartWeek {
+  position: absolute;
+  bottom: -19px;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--border-mid);
+}
+
+.logHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.logFilters {
+  display: flex;
+  gap: 6px;
+}
+.logFilter {
+  min-height: 32px;
+  padding: 0 12px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  cursor: pointer;
+}
+.logFilter:hover {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+.logFilterActive {
+  color: var(--gold-bright);
+  background: var(--raised);
+  border-color: var(--gold-dim);
+}
+.logRows {
+  display: flex;
+  flex-direction: column;
+}
+.logRow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 2px;
+  border-bottom: 1px solid #231d17;
+}
+.logTitle {
+  flex: 1;
+  min-width: 0;
+  font-size: 16.5px;
+  color: var(--parchment);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.logWhen {
+  flex: none;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.logAmount {
+  flex: none;
+  width: 74px;
+  text-align: right;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}

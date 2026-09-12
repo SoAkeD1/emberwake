@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, EB_Garamond, Alegreya_Sans } from "next/font/google";
+import { Cinzel, EB_Garamond, Alegreya_Sans, UnifrakturCook } from "next/font/google";
 import { IconSprite } from "@/components/icon-sprite";
 import { GameProvider } from "@/lib/game/game-context";
 import "./globals.css";
@@ -23,6 +23,12 @@ const alegreyaSans = Alegreya_Sans({
   weight: ["400", "500", "700"],
 });
 
+const unifrakturCook = UnifrakturCook({
+  variable: "--font-blackletter",
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 export const metadata: Metadata = {
   title: "Emberwake",
   description:
@@ -33,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${ebGaramond.variable} ${alegreyaSans.variable} h-full antialiased`}
+      className={`${cinzel.variable} ${ebGaramond.variable} ${alegreyaSans.variable} ${unifrakturCook.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <IconSprite />

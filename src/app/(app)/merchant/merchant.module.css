@@ -1,0 +1,289 @@
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 26px 26px 70px;
+}
+
+.banner {
+  composes: ornate ornate--deep from global;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  align-items: center;
+  padding: 30px 34px;
+  margin-bottom: 24px;
+}
+.bannerGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 120% at 14% 50%, rgba(217, 119, 43, 0.2), transparent 62%);
+}
+.portrait {
+  position: relative;
+  flex: none;
+  width: 112px;
+  height: 132px;
+  background: repeating-linear-gradient(30deg, var(--raised) 0 6px, #221c16 6px 12px);
+  border: 1px solid var(--gold-dim);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 9px;
+  color: var(--gold-dim);
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 8.5px;
+  text-align: center;
+  line-height: 1.5;
+}
+.bannerBody {
+  position: relative;
+  flex: 1 1 300px;
+  min-width: 260px;
+}
+.bannerTitle {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.bannerQuote {
+  margin: 0;
+  font-size: 19px;
+  font-style: italic;
+  color: var(--text-secondary);
+  max-width: 520px;
+  text-wrap: pretty;
+}
+.bannerRunes {
+  position: relative;
+  text-align: right;
+}
+.bannerRunesValue {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 27px;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.bannerRunesLabel {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.sectionTitle {
+  margin: 0 0 14px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 34px;
+}
+.featuredCard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+  padding: 18px;
+  background: linear-gradient(#241e19, #1c1814);
+  border-radius: 2px;
+}
+.featuredInfo {
+  min-width: 140px;
+  flex: 1 1 140px;
+}
+.featuredName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.featuredMeta {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.featuredBonus {
+  font-size: 15.5px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.buyBtn {
+  flex: none;
+  min-height: 40px;
+  padding: 0 14px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  border-radius: 1px;
+  cursor: pointer;
+  color: var(--bg);
+  background: linear-gradient(var(--gold-bright), var(--gold));
+  border: 1px solid var(--gold-bright);
+}
+.buyBtn:hover:not(:disabled) {
+  border-color: var(--gold-bright);
+}
+.buyBtn:disabled {
+  color: var(--gold-dim);
+  background: transparent;
+  border-color: var(--border);
+  cursor: not-allowed;
+}
+
+.shopGrid {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 700px) {
+  .shopGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.catNav {
+  composes: plain-panel from global;
+  padding: 18px;
+}
+.catNavTitle {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.catList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.catItem {
+  text-align: left;
+  min-height: 38px;
+  padding: 0 12px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+.catItem:hover {
+  color: var(--gold-bright);
+}
+.catItemActive {
+  color: var(--gold-bright);
+  background: var(--raised);
+  border-left-color: var(--gold);
+}
+.catFoot {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #231d17;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--gold-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.waresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(214px, 1fr));
+  gap: 16px;
+}
+.wareCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 18px 16px;
+  background: var(--surface);
+  border-radius: 2px;
+}
+.wareTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.wareRarity {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 3px 6px;
+  border: 1px solid;
+}
+.wareName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  line-height: 1.35;
+}
+.wareBonus {
+  font-size: 15.5px;
+  color: var(--text-secondary);
+}
+.wareReq {
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.wareBuy {
+  margin-top: auto;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+  border-radius: 1px;
+  cursor: pointer;
+  color: var(--bg);
+  background: linear-gradient(var(--gold-bright), var(--gold));
+  border: 1px solid var(--gold-bright);
+}
+.wareBuy:hover:not(:disabled) {
+  border-color: var(--gold-bright);
+}
+.wareBuy:disabled {
+  color: var(--gold-dim);
+  background: transparent;
+  border-color: var(--border);
+  cursor: not-allowed;
+}
