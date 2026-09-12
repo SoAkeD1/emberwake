@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { RELIC_DEFS, RELIC_GROUPS } from "@/lib/game/sample-data";
 import styles from "./relics.module.css";
 
@@ -13,7 +12,8 @@ const unlockedCount = RELIC_DEFS.filter((r) => r.unlockedOn).length;
 export default function RelicsPage() {
   return (
     <div className={styles.wrap}>
-      <Image src="/relics-bg.png" alt="" aria-hidden="true" fill priority className={styles.bgPhoto} />
+      {/* eslint-disable-next-line @next/next/no-img-element -- needs true `position: fixed`, which next/image's `fill` mode can't produce (it forces inline position:absolute) */}
+      <img src="/relics-bg.png" alt="" aria-hidden="true" className={styles.bgPhoto} />
       <div className={styles.bgScrim} aria-hidden="true" />
 
       <main className={`${styles.main} fx-fadein`}>
