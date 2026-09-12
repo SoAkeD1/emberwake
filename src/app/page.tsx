@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GateForm } from "@/components/gate-form";
+import { AboutSection } from "@/components/about/about-section";
 
 export default function Home() {
   return (
@@ -61,6 +62,8 @@ export default function Home() {
             <GateForm />
           </div>
         </section>
+
+        <AboutSection />
       </main>
     </>
   );
