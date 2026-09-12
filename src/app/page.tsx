@@ -9,17 +9,6 @@ export default function Home() {
         Skip to sign up
       </a>
 
-      <header className="nav">
-        <span className="nav__wordmark">Emberwake</span>
-        <span className="nav__spacer" />
-        <a className="nav__link" href="#signup">
-          Awaken
-        </a>
-        <a className="nav__cta" href="#signup">
-          Begin the Journey
-        </a>
-      </header>
-
       <main>
         <section className="hero" aria-label="Emberwake">
           <Image

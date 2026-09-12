@@ -152,8 +152,18 @@ body::after {
   background: rgba(14, 12, 10, 0.94);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(6px);
+  /* enough content (7 links + HUD toggle) can outgrow the viewport before
+     the responsive breakpoints kick in — scroll the bar itself rather
+     than letting it force the whole page to scroll horizontally */
+  max-width: 100vw;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar {
+  display: none;
 }
 .nav__wordmark {
+  flex: none;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
@@ -172,6 +182,7 @@ body::after {
 }
 .nav__links {
   display: flex;
+  flex: none;
   gap: 2px;
 }
 .nav__link {
@@ -192,6 +203,48 @@ body::after {
   color: var(--gold-bright);
   background: var(--raised);
   border-color: var(--gold-dim);
+}
+.nav__hudToggle {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+}
+.nav__hudLabel {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.nav__hudGroup {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.nav__hudBtn {
+  min-height: 28px;
+  padding: 0 11px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--border);
+  cursor: pointer;
+}
+.nav__hudGroup .nav__hudBtn:last-child {
+  border-right: none;
+}
+.nav__hudBtn:hover {
+  color: var(--gold-bright);
+}
+.nav__hudBtn--active {
+  color: var(--gold-bright);
+  background: #332b21;
 }
 .nav__cta {
   font-family: var(--font-ui);
@@ -542,9 +595,6 @@ body::after {
     flex-direction: column;
     align-items: flex-start;
   }
-  .nav__link {
-    display: none;
-  }
 }
 
 /* ---------- shared surfaces (used from The Camp onward) ---------- */
@@ -866,8 +916,26 @@ body::after {
   font-variant-numeric: tabular-nums;
   color: var(--parchment);
 }
+.stat-bar__row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.stat-bar__pip {
+  width: 5px;
+  height: 11px;
+  opacity: 0.5;
+  flex: none;
+}
+.stat-bar__pip--left {
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+.stat-bar__pip--right {
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
 .stat-bar__track {
   display: flex;
+  flex: 1;
   gap: 2px;
   height: 9px;
 }

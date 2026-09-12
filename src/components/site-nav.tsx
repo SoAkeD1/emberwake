@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useHudLayout, type HudLayout } from "@/lib/ui/hud-layout-context";
 
 const NAV_ITEMS: { href: string; label: string }[] = [
+  { href: "/", label: "The Gate" },
   { href: "/onboarding", label: "First Steps" },
   { href: "/camp", label: "The Camp" },
   { href: "/chronicle", label: "Chronicle" },
@@ -12,9 +14,18 @@ const NAV_ITEMS: { href: string; label: string }[] = [
   { href: "/moments", label: "Moments" },
 ];
 
-/** The sticky top bar every screen shares: wordmark + screen nav. */
+const HUD_OPTIONS: { value: HudLayout; label: string }[] = [
+  { value: "top", label: "Bar" },
+  { value: "rail", label: "Rail" },
+  { value: "float", label: "Float" },
+];
+
+/** The single persistent header every screen shares — wordmark, screen nav, and (on The Camp) the HUD-layout toggle. */
 export function SiteNav() {
   const pathname = usePathname();
+  const { hud, setHud } = useHudLayout();
+  const onCamp = pathname === "/camp";
+
   return (
     <header className="nav">
       <Link href="/" className="nav__wordmark">
@@ -37,6 +48,24 @@ export function SiteNav() {
         })}
       </nav>
       <span className="nav__spacer" />
+      {onCamp && (
+        <span className="nav__hudToggle">
+          <span className="nav__hudLabel">HUD</span>
+          <span role="group" aria-label="HUD layout" className="nav__hudGroup">
+            {HUD_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                aria-pressed={hud === opt.value}
+                className={`nav__hudBtn${hud === opt.value ? " nav__hudBtn--active" : ""}`}
+                onClick={() => setHud(opt.value)}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </span>
+        </span>
+      )}
     </header>
   );
 }

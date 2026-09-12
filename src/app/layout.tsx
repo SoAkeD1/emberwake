@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Cinzel, EB_Garamond, Alegreya_Sans, UnifrakturCook } from "next/font/google";
 import { IconSprite } from "@/components/icon-sprite";
 import { GameProvider } from "@/lib/game/game-context";
+import { HudLayoutProvider } from "@/lib/ui/hud-layout-context";
+import { SiteNav } from "@/components/site-nav";
+import { GameOverlays } from "@/components/game-overlays";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -43,7 +46,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <IconSprite />
-        <GameProvider>{children}</GameProvider>
+        <GameProvider>
+          <HudLayoutProvider>
+            <SiteNav />
+            {children}
+            <GameOverlays />
+          </HudLayoutProvider>
+        </GameProvider>
       </body>
     </html>
   );

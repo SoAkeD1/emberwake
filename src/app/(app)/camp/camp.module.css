@@ -1,7 +1,7 @@
 .main {
   max-width: 1560px;
   margin: 0 auto;
-  padding: 22px 26px 120px;
+  padding: 0 26px 120px;
 }
 
 /* ---------- HUD ---------- */
@@ -839,4 +839,248 @@
   height: 210%;
   background: linear-gradient(90deg, transparent, rgba(246, 236, 210, 0.17), transparent);
   animation: em-shimmer 4.4s linear infinite;
+}
+
+/* ---------- outer layout (rail HUD needs a flex row alongside the main column) ---------- */
+.body {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding-top: 22px;
+}
+.mainColumn {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- HUD: rail ---------- */
+.hudRail {
+  flex: none;
+  width: 248px;
+  position: sticky;
+  top: 78px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+}
+.railPortrait {
+  width: 100%;
+  height: 150px;
+  background: repeating-linear-gradient(38deg, var(--raised) 0 5px, #231d17 5px 10px);
+  border: 1px solid var(--gold-dim);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  color: var(--gold-dim);
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 8px;
+  letter-spacing: 0.06em;
+}
+.railIdentity {
+  text-align: center;
+}
+.railIdentity .name {
+  font-size: 18px;
+}
+.railIdentity .charTitle {
+  font-size: 15px;
+  margin-top: 2px;
+}
+.railIdentity .classLevel {
+  margin-top: 5px;
+}
+.railDivider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--border-mid);
+}
+.railDivider span {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.railBars {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.railHairline {
+  height: 1px;
+  background: var(--border);
+}
+.railStreak {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.railStreakNum {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--gold-bright);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.railStreakLabel {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  max-width: 56px;
+  line-height: 1.3;
+}
+.railRunes {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.railRunesValue {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.railRavenBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  color: var(--gold);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.railRavenBtn:hover,
+.railRavenBtn:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+/* ---------- HUD: floating pill ---------- */
+.hudFloat {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 13px 22px;
+  background: rgba(30, 26, 22, 0.97);
+  border: 1px solid var(--gold-dim);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 0 3px var(--bg),
+    inset 0 0 0 4px var(--gold-dim),
+    0 22px 54px rgba(0, 0, 0, 0.72);
+  max-width: calc(100vw - 52px);
+  animation: em-rise 0.26s ease both;
+}
+.floatIdentity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.floatPortrait {
+  flex: none;
+  width: 34px;
+  height: 40px;
+  background: repeating-linear-gradient(38deg, var(--raised) 0 4px, #231d17 4px 8px);
+  border: 1px solid var(--gold-dim);
+}
+.floatName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.floatMeta {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.floatSep {
+  width: 1px;
+  height: 38px;
+  background: var(--border);
+  flex: none;
+}
+.floatBars {
+  display: flex;
+  gap: 18px;
+}
+.floatBarSlot {
+  width: 126px;
+}
+.floatStreak {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.floatStreakNum {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--gold-bright);
+  font-variant-numeric: tabular-nums;
+}
+.floatRunes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.floatRunesValue {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.floatRunesLabel {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.floatRavenBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  color: var(--gold);
+  cursor: pointer;
+}
+.floatRavenBtn:hover,
+.floatRavenBtn:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+@media (max-width: 700px) {
+  .floatBars {
+    display: none;
+  }
 }
