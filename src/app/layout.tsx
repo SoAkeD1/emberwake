@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cinzel, EB_Garamond, Alegreya_Sans, UnifrakturCook } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import { IconSprite } from "@/components/icon-sprite";
 import { GameProvider } from "@/lib/game/game-context";
 import { HudLayoutProvider } from "@/lib/ui/hud-layout-context";
@@ -46,13 +47,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <IconSprite />
-        <GameProvider>
-          <HudLayoutProvider>
-            <SiteNav />
-            {children}
-            <GameOverlays />
-          </HudLayoutProvider>
-        </GameProvider>
+        <SessionProvider>
+          <GameProvider>
+            <HudLayoutProvider>
+              <SiteNav />
+              {children}
+              <GameOverlays />
+            </HudLayoutProvider>
+          </GameProvider>
+        </SessionProvider>
       </body>
     </html>
   );
