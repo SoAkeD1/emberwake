@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Alegreya+Sans:wght@400;500;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#151210;}
+body{-webkit-font-smoothing:antialiased;}
+*{box-sizing:border-box;}
+a{color:#c9aa71;text-decoration:none;}
+a:hover{color:#e8d3a0;}
+button{font-family:inherit;}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:900;opacity:.038;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");}
+@keyframes em-fog1{0%{transform:translate3d(-6%,0,0) scale(1.1)}100%{transform:translate3d(8%,-2%,0) scale(1.18)}}
+@keyframes em-fog2{0%{transform:translate3d(6%,1%,0) scale(1.2)}100%{transform:translate3d(-8%,-3%,0) scale(1.1)}}
+@keyframes em-flick{0%,100%{opacity:.92;transform:scaleY(1) translateY(0)}35%{opacity:1;transform:scaleY(1.1) translateY(-1px)}60%{opacity:.8;transform:scaleY(.94) translateY(1px)}}
+@keyframes em-slash{0%{stroke-dashoffset:420;opacity:0}12%{opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes em-glint{0%{opacity:0;transform:scale(.4) rotate(0deg)}40%{opacity:1;transform:scale(1.15) rotate(12deg)}100%{opacity:0;transform:scale(1.5) rotate(24deg)}}
+@keyframes em-float{0%{opacity:0;transform:translateY(6px)}20%{opacity:1}100%{opacity:0;transform:translateY(-34px)}}
+@keyframes em-sp1{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(34px,-26px) scale(.2)}}
+@keyframes em-sp2{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(-28px,-30px) scale(.2)}}
+@keyframes em-sp3{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(18px,-40px) scale(.2)}}
+@keyframes em-sp4{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(-40px,-14px) scale(.2)}}
+@keyframes em-sp5{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(46px,-8px) scale(.2)}}
+@keyframes em-sp6{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(-10px,-44px) scale(.2)}}
+@keyframes em-shake-a{0%,100%{transform:translate(0,0)}20%{transform:translate(2px,-1px)}45%{transform:translate(-2px,1px)}70%{transform:translate(1px,1px)}}
+@keyframes em-shake-b{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}}
+@keyframes em-hit-a{0%{opacity:0}30%{opacity:.5}100%{opacity:0}}
+@keyframes em-hit-b{0%{opacity:0}30%{opacity:.5}100%{opacity:0}}
+@keyframes em-asc-rays{0%{opacity:0;transform:scale(.7)}100%{opacity:.6;transform:scale(1)}}
+@keyframes em-asc-word{0%{opacity:0;letter-spacing:.02em;filter:blur(6px)}100%{opacity:1;letter-spacing:.34em;filter:blur(0)}}
+@keyframes em-shimmer{0%{transform:translateX(-160%) rotate(18deg)}100%{transform:translateX(260%) rotate(18deg)}}
+@keyframes em-fadein{0%{opacity:0}100%{opacity:1}}
+@keyframes em-rise{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes em-ember{0%{opacity:0;transform:translateY(0) scale(.9)}12%{opacity:.85}100%{opacity:0;transform:translateY(-130px) scale(.3)}}
+@keyframes em-path{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+@keyframes em-unroll{0%{opacity:0;transform:scaleY(.12)}100%{opacity:1;transform:scaleY(1)}}
+@keyframes em-ring{0%{stroke-dashoffset:151}100%{stroke-dashoffset:46}}
+@keyframes em-stamp{0%{opacity:0;transform:scale(1.7)}62%{opacity:1;transform:scale(.94)}100%{opacity:1;transform:scale(1)}}
+@keyframes em-grow{0%{transform:scale(.4)}55%{transform:scale(.78)}100%{transform:scale(1)}}
+@keyframes em-drain{0%,10%{transform:scaleY(1)}46%{transform:scaleY(.18)}100%{transform:scaleY(1)}}
+@keyframes em-health{0%,16%{transform:scaleX(1)}22%{transform:scaleX(.98)}34%,62%{transform:scaleX(.54)}100%{transform:scaleX(.82)}}
+@keyframes em-trickle{0%{opacity:0;transform:translateY(-16px)}30%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
+@keyframes em-flipcard{0%{transform:rotateY(0)}100%{transform:rotateY(180deg)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:radial-gradient(120% 90% at 50% 0%,#1b1714 0%,#151210 55%,#0e0c0a 100%);color:#e6dcc8;font-family:'EB Garamond',Georgia,serif;position:relative;overflow-x:hidden">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-vigor" viewBox="0 0 24 24"><path d="M12 20.4s-7.2-4.6-7.2-9.8A4.2 4.2 0 0 1 12 7.7a4.2 4.2 0 0 1 7.2 2.9c0 5.2-7.2 9.8-7.2 9.8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-mind" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="8.4" ry="5.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+<symbol id="i-endurance" viewBox="0 0 24 24"><path d="M7 3.4h10M7 20.6h10M8.4 3.4v2.4l3.6 4.4 3.6-4.4V3.4M8.4 20.6v-2.4l3.6-4.4 3.6 4.4v2.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-strength" viewBox="0 0 24 24"><path d="M6.4 11V7.6a1.5 1.5 0 0 1 3 0V11M9.4 11V6.2a1.5 1.5 0 0 1 3 0V11M12.4 11V7a1.5 1.5 0 0 1 3 0v4M15.4 11V9.6a1.5 1.5 0 0 1 3 0v5A6 6 0 0 1 12.4 20.6h-1a5 5 0 0 1-5-5V11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-dexterity" viewBox="0 0 24 24"><path d="M6 3.4l9.6 13M18 3.4L8.4 16.4M3.6 20.6l3.6-3.6M20.4 20.6l-3.6-3.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M9.4 3.4h5.2M10.4 3.4v4.2l-3.6 7.6a3.8 3.8 0 0 0 3.4 5.4h3.6a3.8 3.8 0 0 0 3.4-5.4l-3.6-7.6V3.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-sword" viewBox="0 0 24 24"><path d="M20.4 3.6l-9 9M14.6 3.6h5.8v5.8M4.6 19.4l3.6-3.6M2.8 21.2l3-.8-2.2-2.2-.8 3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2l8 3v6c0 5-4.4 7.8-8 8.6-3.6-.8-8-3.6-8-8.6v-6l8-3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-ring" viewBox="0 0 24 24"><circle cx="12" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 3l2.4 2.6L12 8.2 9.6 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M5.6 4.6h12.8v14.8H5.6zM8.4 8.6h7.2M8.4 12h7.2M8.4 15.4h4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-skull" viewBox="0 0 24 24"><path d="M12 3.2a7 7 0 0 1 7 7v3.2l-1.6 1.6v2.4h-2.2v2.4H8.8v-2.4H6.6v-2.4L5 13.4v-3.2a7 7 0 0 1 7-7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="9.4" cy="11" r="1.5" fill="currentColor"/><circle cx="14.6" cy="11" r="1.5" fill="currentColor"/></symbol>
+<symbol id="i-chalice" viewBox="0 0 24 24"><path d="M6.6 4h10.8l-1 5.4a4.4 4.4 0 0 1-8.8 0L6.6 4zM12 13.8v5.6M8.2 20.4h7.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 9.2l2.8 2.8L12 14.8 9.2 12 12 9.2z" fill="currentColor"/></symbol>
+<symbol id="i-sigil" viewBox="0 0 24 24"><path d="M12 2.6L21.4 12 12 21.4 2.6 12 12 2.6z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.6L16.4 12 12 16.4 7.6 12 12 7.6z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M9 18.2a3 3 0 0 0 6 0M12 3.2a5.2 5.2 0 0 0-5.2 5.2v4.2L4.8 16h14.4l-2-3.4V8.4A5.2 5.2 0 0 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2.6s5.4 5 5.4 9.6a5.4 5.4 0 0 1-10.8 0c0-2.2 1.2-3.4 2.4-4.4 0 2.2 1 3.2 2 3.2 0-3.4 1-6.4 1-8.4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.6" cy="10.6" r="6.4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.4 15.4l4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-kebab" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="19" r="1.6" fill="currentColor"/></symbol>
+<symbol id="i-fil" viewBox="0 0 40 40"><path d="M0 14C0 6 6 0 14 0M0 20C0 9 9 0 20 0M6 6l4 4" fill="none" stroke="currentColor" stroke-width="1"/><path d="M13 5l2.2 2.2L13 9.4 10.8 7.2 13 5z" fill="currentColor" opacity=".8"/></symbol>
+</defs></svg>
+
+<header style="position:sticky;top:0;z-index:120;display:flex;align-items:center;gap:28px;padding:0 26px;height:54px;background:rgba(14,12,10,.94);border-bottom:1px solid #2c251d;backdrop-filter:blur(6px)">
+  <span style="font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.30em;color:#c9aa71;text-transform:uppercase">Emberwake</span>
+  <span style="width:1px;height:20px;background:#2c251d"></span>
+  <nav aria-label="Screens" style="display:flex;gap:2px">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+      <button type="button" onClick="{{ n.go }}" aria-current="{{ n.cur }}" style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:8px 13px;border:1px solid {{ n.bd }};background:{{ n.bg }};color:{{ n.fg }};cursor:pointer;border-radius:1px" style-hover="border-color:#c9aa71;color:#e8d3a0">{{ n.label }}</button>
+    </sc-for>
+  </nav>
+  <span style="flex:1"></span>
+  <sc-if value="{{ isCamp }}" hint-placeholder-val="{{ true }}">
+    <span style="display:flex;align-items:center;gap:8px">
+      <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#6b5836">HUD</span>
+      <span role="group" aria-label="HUD layout" style="display:flex;border:1px solid #2c251d;border-radius:1px;overflow:hidden">
+        <sc-for list="{{ hudOptions }}" as="h" hint-placeholder-count="3">
+          <button type="button" onClick="{{ h.go }}" aria-pressed="{{ h.sel }}" style="min-height:28px;padding:0 11px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:{{ h.fg }};background:{{ h.bg }};border:none;border-right:1px solid #2c251d;cursor:pointer" style-hover="color:#e8d3a0">{{ h.label }}</button>
+        </sc-for>
+      </span>
+    </span>
+  </sc-if>
+  <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#6b5836">Mockup · v1</span>
+</header>
+
+<div style="animation:{{ shakeAnim }}">
+
+<sc-if value="{{ isGate }}" hint-placeholder-val="{{ false }}">
+<main style="animation:em-fadein .4s ease both">
+  <section style="position:relative;min-height:620px;display:flex;align-items:center;overflow:hidden">
+    <img src="uploads/pasted-1789212993490-0.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 42%;filter:saturate(.86) contrast(1.04)">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(70% 55% at 62% 42%,rgba(217,119,43,.18) 0%,rgba(201,170,113,.06) 38%,transparent 72%)"></div>
+    <div aria-hidden="true" style="position:absolute;left:-10%;right:-10%;bottom:-8%;height:62%;background:radial-gradient(60% 100% at 50% 100%,rgba(201,170,113,.16),transparent 70%);animation:em-fog1 34s ease-in-out infinite alternate"></div>
+    <div aria-hidden="true" style="position:absolute;left:-14%;right:-14%;top:18%;height:54%;background:radial-gradient(50% 100% at 40% 50%,rgba(230,220,200,.07),transparent 72%);animation:em-fog2 47s ease-in-out infinite alternate"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to right,rgba(14,12,10,.93) 0%,rgba(14,12,10,.62) 38%,rgba(14,12,10,.4) 62%,rgba(14,12,10,.9) 100%)"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,12,10,.55) 0%,transparent 22%,rgba(21,18,16,.28) 44%,rgba(21,18,16,.66) 62%,rgba(21,18,16,.92) 76%,#151210 87%,#151210 100%)"></div>
+
+    <div style="position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:60px;align-items:center;max-width:1340px;margin:0 auto;padding:90px 46px;width:100%">
+      <div style="flex:1 1 420px;min-width:0">
+        <p style="margin:0 0 22px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#d9772b">A habit tracker for the unyielding</p>
+        <h1 style="margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(46px,6.6vw,86px);line-height:.98;letter-spacing:.08em;text-transform:uppercase;color:#e8d3a0;text-shadow:0 2px 0 #0e0c0a,0 0 42px rgba(201,170,113,.24)">Emberwake</h1>
+        <div aria-hidden="true" style="display:flex;align-items:center;gap:10px;margin:26px 0 22px;max-width:420px"><span style="flex:1;height:1px;background:linear-gradient(to right,transparent,#6b5836)"></span><svg width="11" height="11" style="color:#c9aa71"><use href="#i-sigil"></use></svg><span style="flex:1;height:1px;background:linear-gradient(to left,transparent,#6b5836)"></span></div>
+        <p style="margin:0 0 34px;font-size:22px;line-height:1.55;color:#e6dcc8;max-width:440px;text-wrap:pretty;font-style:italic">Every habit is a battle. Every day, a bonfire.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+          <button type="button" onClick="{{ goCamp }}" style="font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase;padding:16px 30px;min-height:48px;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer;box-shadow:0 0 0 1px #151210,0 0 26px rgba(201,170,113,.2)" style-hover="background:linear-gradient(#f1e3bd,#d8bc84);transform:translateY(-2px)">Begin the Journey</button>
+          <button type="button" onClick="{{ goCamp }}" style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;padding:16px 26px;min-height:48px;color:#c9aa71;background:transparent;border:1px solid #6b5836;border-radius:1px;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0">Awaken</button>
+        </div>
+      </div>
+
+      <div style="flex:0 1 372px;min-width:300px;position:relative;padding:34px 32px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836,0 22px 60px rgba(0,0,0,.6)">
+        <sc-if value="{{ filigree }}" hint-placeholder-val="{{ true }}">
+          <svg width="34" height="34" aria-hidden="true" style="position:absolute;left:9px;top:9px;color:#6b5836"><use href="#i-fil"></use></svg>
+        </sc-if>
+        <h2 style="margin:0 0 6px;font-family:'Cinzel',serif;font-weight:600;font-size:17px;letter-spacing:.16em;text-transform:uppercase;color:#c9aa71;text-align:center">Swear the First Oath</h2>
+        <p style="margin:0 0 26px;text-align:center;font-size:15px;color:#a39787;font-style:italic">No soul is turned from the gate.</p>
+        <label style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:7px">Name of record</label>
+        <input type="email" placeholder="wanderer@keep.realm" style="width:100%;min-height:44px;padding:11px 13px;margin-bottom:16px;background:#151210;border:1px solid #4a3d2c;border-radius:1px;color:#e6dcc8;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:14px" style-focus="border-color:#e8d3a0;outline:2px solid #e8d3a0;outline-offset:1px">
+        <label style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:7px">Ward</label>
+        <input type="password" placeholder="••••••••••" style="width:100%;min-height:44px;padding:11px 13px;margin-bottom:24px;background:#151210;border:1px solid #4a3d2c;border-radius:1px;color:#e6dcc8;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:14px" style-focus="border-color:#e8d3a0;outline:2px solid #e8d3a0;outline-offset:1px">
+        <button type="button" onClick="{{ goCamp }}" style="width:100%;min-height:48px;font-family:'Cinzel',serif;font-weight:600;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer" style-hover="background:linear-gradient(#f1e3bd,#d8bc84)">Begin the Journey</button>
+        <div aria-hidden="true" style="display:flex;align-items:center;gap:10px;margin:20px 0"><span style="flex:1;height:1px;background:#2c251d"></span><span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.2em;color:#6b5836">OR</span><span style="flex:1;height:1px;background:#2c251d"></span></div>
+        <button type="button" style="width:100%;min-height:46px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.06em;color:#e6dcc8;background:#29231c;border:1px solid #4a3d2c;border-radius:1px;cursor:pointer" style-hover="border-color:#c9aa71">Continue with Google</button>
+        <p style="margin:20px 0 0;text-align:center;font-size:14px;color:#6b5836">Already awake? <a href="#awaken" style="color:#c9aa71;border-bottom:1px solid #4a3d2c">Awaken</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div style="position:relative;overflow:hidden">
+  <img src="uploads/pasted-1789213345824-0.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 34%;filter:saturate(.5) brightness(.48) contrast(1.06)">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom,#151210 0%,#151210 11%,rgba(21,18,16,.94) 20%,rgba(21,18,16,.84) 34%,rgba(21,18,16,.8) 52%,rgba(21,18,16,.9) 84%,#151210 100%)"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 22%,rgba(217,119,43,.07),transparent 70%)"></div>
+  <div style="position:relative">
+
+  <section aria-labelledby="ab-intro" style="position:relative;max-width:920px;margin:0 auto;padding:104px 46px 0;text-align:center">
+    <div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+      <span style="position:absolute;left:9%;bottom:8%;width:3px;height:3px;border-radius:50%;background:#d9772b;animation:em-ember 8s linear infinite"></span>
+      <span style="position:absolute;left:22%;bottom:2%;width:2px;height:2px;border-radius:50%;background:#c9aa71;animation:em-ember 11s linear infinite 1.4s"></span>
+      <span style="position:absolute;left:48%;bottom:6%;width:2px;height:2px;border-radius:50%;background:#d9772b;animation:em-ember 9.5s linear infinite 3.1s"></span>
+      <span style="position:absolute;left:71%;bottom:0;width:3px;height:3px;border-radius:50%;background:#c9aa71;animation:em-ember 12s linear infinite 2.2s"></span>
+      <span style="position:absolute;left:88%;bottom:10%;width:2px;height:2px;border-radius:50%;background:#d9772b;animation:em-ember 10s linear infinite 5s"></span>
+    </div>
+    <p data-em-reveal="0" style="position:relative;margin:0 0 20px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#d9772b">The Chronicle Begins</p>
+    <h2 id="ab-intro" data-em-reveal="90" style="position:relative;margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(26px,3.4vw,40px);line-height:1.18;letter-spacing:.08em;text-transform:uppercase;color:#e8d3a0;text-wrap:balance">Your Life Is the Hardest Game You'll Ever Play</h2>
+    <div aria-hidden="true" style="position:relative;display:flex;align-items:center;gap:10px;margin:30px auto 28px;max-width:420px">
+      <span data-em-reveal="200" data-em-anim="em-path .8s cubic-bezier(.2,.7,.3,1) both" style="flex:1;height:1px;transform-origin:right center;background:linear-gradient(to right,transparent,#6b5836)"></span>
+      <svg width="12" height="12" style="color:#c9aa71;flex:none"><use href="#i-sigil"></use></svg>
+      <span data-em-reveal="200" data-em-anim="em-path .8s cubic-bezier(.2,.7,.3,1) both" style="flex:1;height:1px;transform-origin:left center;background:linear-gradient(to left,transparent,#6b5836)"></span>
+    </div>
+    <p data-em-reveal="300" style="position:relative;margin:0 auto;max-width:660px;font-size:19px;line-height:1.62;color:#a39787;text-wrap:pretty">Real progress is slow. A book, a workout, a lesson — the reward arrives months later, if at all. Emberwake gives you the victory now. Every habit becomes a quest, every day a battle, every streak a bonfire against the dark.</p>
+  </section>
+
+  <section aria-labelledby="ab-compare" style="max-width:1100px;margin:0 auto;padding:84px 46px 0">
+    <h2 id="ab-compare" data-em-reveal="0" style="margin:0 0 40px;font-family:'Cinzel',serif;font-weight:600;font-size:20px;letter-spacing:.22em;text-transform:uppercase;color:#6b5836;text-align:center">The Problem, and the Quest</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:stretch">
+
+      <div data-em-reveal="80" style="display:flex;flex-direction:column;padding:26px 24px;background:#191817;border:1px solid #282725;border-radius:2px">
+        <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#6e6a64">The Old Way</span>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:34px 0 26px">
+          <div style="display:flex;align-items:center;gap:13px">
+            <span aria-hidden="true" style="width:17px;height:17px;border:1.5px solid #55524c;border-radius:1px;flex:none"></span>
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:16px;color:#8b8781">Go to the gym</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:13px;opacity:.5">
+            <span aria-hidden="true" style="width:17px;height:17px;border:1.5px solid #55524c;border-radius:1px;flex:none"></span>
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:16px;color:#8b8781">Read 20 pages</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:13px;opacity:.28">
+            <span aria-hidden="true" style="width:17px;height:17px;border:1.5px solid #55524c;border-radius:1px;flex:none"></span>
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:16px;color:#8b8781">Sleep by eleven</span>
+          </div>
+        </div>
+        <p style="margin:0;font-size:15px;font-style:italic;color:#6e6a64">A checkbox. Nothing happens.</p>
+      </div>
+
+      <div data-em-demo="1" style="position:relative;overflow:hidden;display:flex;flex-direction:column;padding:26px 24px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836;transform:{{ demoCardTransform }};transition:transform .28s cubic-bezier(.2,.7,.3,1)">
+        <sc-if value="{{ filigree }}" hint-placeholder-val="{{ true }}">
+          <svg width="30" height="30" aria-hidden="true" style="position:absolute;left:8px;top:8px;color:#4a3d2c"><use href="#i-fil"></use></svg>
+        </sc-if>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#c9aa71">The Emberwake Way</span>
+          <span style="display:flex;align-items:center;gap:7px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;font-variant-numeric:tabular-nums;letter-spacing:.1em;color:#e8d3a0"><svg width="13" height="13" aria-hidden="true" style="color:#c9aa71"><use href="#i-sigil"></use></svg>{{ demoRunes }}</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:26px 0 4px">
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;flex:none;border-radius:50%;background:#29231c;box-shadow:inset 0 0 0 1px #4a3d2c"><svg width="24" height="24" aria-hidden="true" style="color:#c9aa71"><use href="#i-strength"></use></svg></span>
+          <div style="min-width:0">
+            <h3 style="margin:0 0 6px;font-family:'Cinzel',serif;font-weight:600;font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:#e8d3a0">The Iron Vigil</h3>
+            <p style="margin:0;font-size:15.5px;color:#a39787;line-height:1.5">Go to the gym. Squats, presses, the long carry.</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 0 14px">
+          <span style="display:flex;align-items:center;gap:5px" aria-label="Difficulty: hard"><span aria-hidden="true" style="width:7px;height:7px;background:#c9aa71;transform:rotate(45deg)"></span><span aria-hidden="true" style="width:7px;height:7px;background:#c9aa71;transform:rotate(45deg)"></span><span aria-hidden="true" style="width:7px;height:7px;background:#c9aa71;transform:rotate(45deg)"></span><span aria-hidden="true" style="width:7px;height:7px;background:#3a332a;transform:rotate(45deg)"></span></span>
+          <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6b5836">Hard · Strength</span>
+          <span style="margin-left:auto;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12.5px;font-variant-numeric:tabular-nums;letter-spacing:.12em;text-transform:uppercase;color:#c9aa71">+25 Runes</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:9px;padding-bottom:20px">
+          <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#6b5836;flex:none">Strength</span>
+          <span role="progressbar" aria-label="Strength progress" aria-valuenow="{{ demoStrNum }}" aria-valuemin="0" aria-valuemax="4" style="display:flex;gap:4px;flex:1">
+            <sc-for list="{{ demoSegs }}" as="seg" hint-placeholder-count="4">
+              <span style="flex:1;height:5px;background:{{ seg.bg }};box-shadow:inset 0 0 0 1px #2c251d;transition:background .45s ease"></span>
+            </sc-for>
+          </span>
+        </div>
+        <div style="margin-top:auto;min-height:48px;display:flex;align-items:center">
+          <sc-if value="{{ demoIdle }}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{ playDemo }}" style="width:100%;min-height:48px;font-family:'Cinzel',serif;font-weight:600;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer" style-hover="background:linear-gradient(#f1e3bd,#d8bc84)" style-active="transform:translateY(1px)">Complete Quest</button>
+          </sc-if>
+          <sc-if value="{{ demoDone }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:0 14px;background:#191612;box-shadow:inset 0 0 0 1px #2c251d">
+              <span style="display:flex;align-items:center;gap:9px;font-family:'Cinzel',serif;font-weight:600;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:#6b5836;text-shadow:0 1px 0 #0e0c0a"><svg width="15" height="15" aria-hidden="true"><use href="#i-seal"></use></svg>Conquered</span>
+              <button type="button" onClick="{{ replayDemo }}" style="background:none;border:none;padding:6px 2px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#c9aa71;cursor:pointer;border-bottom:1px solid #4a3d2c">Replay</button>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ demoStrike }}" hint-placeholder-val="{{ false }}">
+          <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"><path d="M-20 290L420 10" fill="none" stroke="#f6ecd2" stroke-width="3" stroke-dasharray="420" style="animation:em-slash .5s cubic-bezier(.3,.8,.2,1) both"></path></svg>
+          <svg width="54" height="54" aria-hidden="true" style="position:absolute;left:50%;top:44%;margin:-27px 0 0 -27px;color:#f6ecd2;pointer-events:none;animation:em-glint .55s ease-out both"><use href="#i-sigil"></use></svg>
+          <span aria-hidden="true" style="position:absolute;left:50%;top:46%;width:4px;height:4px;border-radius:50%;background:#e8d3a0;animation:em-sp1 .6s ease-out both"></span>
+          <span aria-hidden="true" style="position:absolute;left:50%;top:46%;width:3px;height:3px;border-radius:50%;background:#d9772b;animation:em-sp2 .7s ease-out both"></span>
+          <span aria-hidden="true" style="position:absolute;left:50%;top:46%;width:3px;height:3px;border-radius:50%;background:#f6ecd2;animation:em-sp3 .65s ease-out both"></span>
+          <span aria-hidden="true" style="position:absolute;left:50%;top:46%;width:4px;height:4px;border-radius:50%;background:#c9aa71;animation:em-sp4 .75s ease-out both"></span>
+          <span aria-hidden="true" style="position:absolute;left:50%;top:46%;width:3px;height:3px;border-radius:50%;background:#d9772b;animation:em-sp5 .6s ease-out both"></span>
+          <span aria-hidden="true" style="position:absolute;left:50%;top:46%;width:3px;height:3px;border-radius:50%;background:#e8d3a0;animation:em-sp6 .8s ease-out both"></span>
+        </sc-if>
+        <sc-if value="{{ demoFloat }}" hint-placeholder-val="{{ false }}">
+          <span aria-hidden="true" style="position:absolute;left:0;right:0;top:52%;text-align:center;font-family:'Cinzel',serif;font-weight:700;font-size:22px;letter-spacing:.16em;color:#e8d3a0;text-shadow:0 0 18px rgba(201,170,113,.5);pointer-events:none;animation:em-float 1.3s ease-out both">+27 Runes</span>
+        </sc-if>
+      </div>
+    </div>
+    <p data-em-reveal="240" style="margin:26px 0 0;text-align:center;font-size:17px;font-style:italic;color:#a39787">Same habit. Entirely different feeling.</p>
+  </section>
+
+  <section aria-labelledby="ab-journey" style="max-width:1340px;margin:0 auto;padding:88px 46px 20px">
+    <h2 id="ab-journey" data-em-reveal="0" style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:600;font-size:26px;letter-spacing:.16em;text-transform:uppercase;color:#c9aa71;text-align:center">How the Journey Works</h2>
+    <div aria-hidden="true" style="display:flex;align-items:center;gap:10px;margin:0 auto 52px;max-width:300px"><span style="flex:1;height:1px;background:linear-gradient(to right,transparent,#6b5836)"></span><svg width="10" height="10" style="color:#6b5836"><use href="#i-sigil"></use></svg><span style="flex:1;height:1px;background:linear-gradient(to left,transparent,#6b5836)"></span></div>
+    <div aria-hidden="true" data-em-reveal="0" data-em-anim="em-path 1.2s cubic-bezier(.2,.7,.3,1) both" style="height:1px;margin-bottom:-1px;transform-origin:left center;background:linear-gradient(to right,transparent,#6b5836 12%,#c9aa71 50%,#6b5836 88%,transparent)"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:26px">
+
+      <div data-em-reveal="120" style="position:relative;padding:30px 28px 34px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.3em;color:#6b5836">I</span>
+        <div aria-hidden="true" style="position:relative;height:92px;margin:14px 0 20px;display:flex;align-items:center;justify-content:center">
+          <span data-em-reveal="260" data-em-anim="em-unroll .7s cubic-bezier(.2,.7,.3,1) both" style="position:absolute;width:128px;height:76px;background:linear-gradient(#241f19,#1a1613);box-shadow:inset 0 0 0 1px #4a3d2c"></span>
+          <span data-em-reveal="520" data-em-anim="em-path .9s ease both" style="position:absolute;top:38px;width:78px;height:2px;transform-origin:left center;background:#c9aa71"></span>
+          <span data-em-reveal="700" data-em-anim="em-path .7s ease both" style="position:absolute;top:50px;width:54px;height:1px;transform-origin:left center;background:#6b5836"></span>
+        </div>
+        <h3 style="margin:0 0 12px;font-family:'Cinzel',serif;font-weight:600;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#e8d3a0">Swear Your Oaths</h3>
+        <p style="margin:0;font-size:17px;line-height:1.62;color:#a39787;text-wrap:pretty">Turn habits, daily routines, and one-off tasks into Oaths, Vigils, and Bounties.</p>
+      </div>
+
+      <div data-em-reveal="220" style="position:relative;padding:30px 28px 34px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.3em;color:#6b5836">II</span>
+        <div aria-hidden="true" style="position:relative;height:92px;margin:14px 0 20px;display:flex;align-items:center;justify-content:center">
+          <svg width="88" height="88" viewBox="0 0 60 60" style="position:absolute"><circle cx="30" cy="30" r="24" fill="none" stroke="#2c251d" stroke-width="3"></circle><circle data-em-reveal="340" data-em-anim="em-ring 1s cubic-bezier(.2,.7,.3,1) both" cx="30" cy="30" r="24" fill="none" stroke="#c9aa71" stroke-width="3" stroke-linecap="round" stroke-dasharray="151" stroke-dashoffset="151" transform="rotate(-90 30 30)"></circle></svg>
+          <span data-em-reveal="900" data-em-anim="em-stamp .5s cubic-bezier(.2,.9,.3,1) both" style="position:absolute;font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:.14em;color:#e8d3a0;text-shadow:0 0 16px rgba(201,170,113,.6)">LV 2</span>
+        </div>
+        <h3 style="margin:0 0 12px;font-family:'Cinzel',serif;font-weight:600;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#e8d3a0">Conquer the Day</h3>
+        <p style="margin:0;font-size:17px;line-height:1.62;color:#a39787;text-wrap:pretty">Complete quests to earn Runes, raise your attributes, and ascend to new levels. Each level demands more than the last.</p>
+      </div>
+
+      <div data-em-reveal="320" style="position:relative;padding:30px 28px 34px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.3em;color:#6b5836">III</span>
+        <div aria-hidden="true" style="position:relative;height:92px;margin:14px 0 20px;display:flex;align-items:center;justify-content:center;gap:26px">
+          <span data-em-reveal="440" data-em-anim="em-grow 1.4s cubic-bezier(.2,.7,.3,1) both" style="display:flex;transform-origin:50% 90%;color:#d9772b;filter:drop-shadow(0 0 14px rgba(217,119,43,.45))"><svg width="52" height="52"><use href="#i-flame"></use></svg></span>
+          <span style="position:relative;display:flex;width:34px;height:52px;align-items:flex-end;justify-content:center;color:#6b5836">
+            <span data-em-reveal="900" data-em-anim="em-drain 1.6s ease-in-out both" style="position:absolute;left:9px;right:9px;bottom:8px;height:26px;transform-origin:50% 100%;background:#9e2a2b;opacity:.6"></span>
+            <svg width="34" height="34" style="position:relative"><use href="#i-flask"></use></svg>
+          </span>
+        </div>
+        <h3 style="margin:0 0 12px;font-family:'Cinzel',serif;font-weight:600;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#e8d3a0">Keep the Bonfire Lit</h3>
+        <p style="margin:0;font-size:17px;line-height:1.62;color:#a39787;text-wrap:pretty">Show up every day to grow your bonfire and earn titles. Miss a day and an Ember Flask drains to protect you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="ab-mastery" style="max-width:1340px;margin:0 auto;padding:78px 46px 20px">
+    <h2 id="ab-mastery" data-em-reveal="0" style="margin:0 0 44px;font-family:'Cinzel',serif;font-weight:600;font-size:18px;letter-spacing:.22em;text-transform:uppercase;color:#6b5836;text-align:center">Paths of Mastery</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:18px">
+      <sc-for list="{{ masteryPaths }}" as="a" hint-placeholder-count="5">
+        <button type="button" onMouseEnter="{{ a.enter }}" onMouseLeave="{{ a.leave }}" onFocus="{{ a.enter }}" onBlur="{{ a.leave }}" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:13px;padding:28px 16px 22px;min-height:44px;border:1px solid #2c251d;border-radius:2px;background:rgba(41,35,28,.4);cursor:pointer;text-align:center;transition:transform .3s cubic-bezier(.2,.7,.3,1),border-color .3s ease" style-hover="transform:translateY(-3px) rotate(-1.2deg);border-color:#6b5836" style-focus="outline:2px solid #e8d3a0;outline-offset:2px">
+          <span style="display:flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:50%;background:radial-gradient(70% 70% at 50% 35%,#33291f,#201b16);box-shadow:inset 0 0 0 1px #4a3d2c,0 0 0 1px #151210,{{ a.glow }};transition:box-shadow .35s ease">
+            <svg width="30" height="30" aria-hidden="true" style="color:#c9aa71"><use href="{{ a.icon }}"></use></svg>
+          </span>
+          <span style="font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#e8d3a0">{{ a.name }}</span>
+          <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.05em;color:#6b5836">{{ a.domain }}</span>
+          <span aria-hidden="true" style="width:100%;height:4px;margin-top:4px;background:#100e0c;box-shadow:inset 0 0 0 1px #2c251d;overflow:hidden"><span style="display:block;height:100%;width:{{ a.barW }};background:#5b8a3c;transition:width .55s cubic-bezier(.2,.7,.3,1)"></span></span>
+          <sc-if value="{{ a.hot }}" hint-placeholder-val="{{ false }}">
+            <span style="position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);width:max-content;max-width:230px;padding:9px 12px;background:#151210;border:1px solid #4a3d2c;border-radius:1px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;line-height:1.5;letter-spacing:.04em;color:#e6dcc8;box-shadow:0 12px 28px rgba(0,0,0,.6);z-index:5;animation:em-rise .22s ease both">{{ a.examples }}</span>
+          </sc-if>
+        </button>
+      </sc-for>
+    </div>
+    <p data-em-reveal="120" style="margin:26px 0 0;text-align:center;font-size:17px;font-style:italic;color:#a39787">Your real habits shape your character. Train the body, sharpen the mind.</p>
+  </section>
+
+  <section aria-labelledby="ab-spoils" style="max-width:1160px;margin:0 auto;padding:84px 46px 0">
+    <h2 id="ab-spoils" data-em-reveal="0" style="margin:0 0 44px;font-family:'Cinzel',serif;font-weight:600;font-size:18px;letter-spacing:.22em;text-transform:uppercase;color:#6b5836;text-align:center">Spoils of the Journey</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(304px,1fr));gap:20px">
+
+      <div data-em-reveal="60" style="display:flex;gap:20px;padding:26px 24px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <div aria-hidden="true" style="position:relative;flex:none;width:76px;height:84px;overflow:hidden">
+          <span style="position:absolute;left:33px;top:0;width:4px;height:4px;border-radius:50%;background:#c9aa71;animation:em-trickle 2.6s ease-in-out infinite"></span>
+          <span style="position:absolute;left:24px;top:0;width:3px;height:3px;border-radius:50%;background:#e8d3a0;animation:em-trickle 2.6s ease-in-out infinite .7s"></span>
+          <span style="position:absolute;left:44px;top:0;width:3px;height:3px;border-radius:50%;background:#c9aa71;animation:em-trickle 2.6s ease-in-out infinite 1.4s"></span>
+          <span style="position:absolute;left:6px;bottom:10px;right:6px;display:flex;align-items:center;justify-content:center;gap:6px;padding:7px 0;background:#151210;box-shadow:inset 0 0 0 1px #4a3d2c;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;font-variant-numeric:tabular-nums;letter-spacing:.1em;color:#e8d3a0"><svg width="12" height="12" style="color:#c9aa71"><use href="#i-sigil"></use></svg>1,240</span>
+        </div>
+        <div style="min-width:0">
+          <h3 style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#e8d3a0">Runes &amp; Ascension</h3>
+          <p style="margin:0;font-size:16.5px;line-height:1.58;color:#a39787;text-wrap:pretty">Earn Runes for every victory. Rise through levels that grow harder to reach.</p>
+        </div>
+      </div>
+
+      <div data-em-reveal="140" style="display:flex;gap:20px;padding:26px 24px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <div aria-hidden="true" style="flex:none;width:76px;height:84px;display:flex;align-items:center;justify-content:center;perspective:520px">
+          <span data-em-reveal="380" data-em-anim="em-flipcard .9s cubic-bezier(.3,.8,.2,1) both" style="position:relative;display:block;width:54px;height:72px;transform-style:preserve-3d">
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#221d18;box-shadow:inset 0 0 0 1px #3a332a;backface-visibility:hidden;color:#6b5836"><svg width="26" height="26"><use href="#i-sword"></use></svg></span>
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(#2a231a,#1c1713);box-shadow:inset 0 0 0 1px #c9aa71,0 0 18px rgba(201,170,113,.3);backface-visibility:hidden;transform:rotateY(180deg);color:#e8d3a0"><svg width="26" height="26"><use href="#i-sword"></use></svg></span>
+          </span>
+        </div>
+        <div style="min-width:0">
+          <h3 style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#e8d3a0">The Wandering Merchant</h3>
+          <p style="margin:0;font-size:16.5px;line-height:1.58;color:#a39787;text-wrap:pretty">Spend Runes on weapons, armor, realm themes, and titles — or on real rewards you set yourself.</p>
+        </div>
+      </div>
+
+      <div data-em-reveal="220" style="display:flex;gap:20px;padding:26px 24px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <div aria-hidden="true" style="flex:none;width:76px;height:84px;display:flex;align-items:center;justify-content:center;perspective:520px">
+          <span data-em-reveal="460" data-em-anim="em-flipcard .9s cubic-bezier(.3,.8,.2,1) both" style="position:relative;display:block;width:64px;height:64px;transform-style:preserve-3d">
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#221d18;box-shadow:inset 0 0 0 1px #3a332a;backface-visibility:hidden;color:#55504a"><svg width="28" height="28"><use href="#i-seal"></use></svg></span>
+            <span style="position:absolute;inset:0;overflow:hidden;display:flex;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(70% 70% at 50% 35%,#3a2f21,#1c1713);box-shadow:inset 0 0 0 1px #c9aa71,0 0 20px rgba(201,170,113,.28);backface-visibility:hidden;transform:rotateY(180deg);color:#e8d3a0"><svg width="28" height="28"><use href="#i-seal"></use></svg><span style="position:absolute;top:0;left:0;width:26%;height:230%;background:linear-gradient(90deg,transparent,rgba(246,236,210,.22),transparent);animation:em-shimmer 4.5s linear infinite"></span></span>
+          </span>
+        </div>
+        <div style="min-width:0">
+          <h3 style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#e8d3a0">The Hall of Relics</h3>
+          <p style="margin:0;font-size:16.5px;line-height:1.58;color:#a39787;text-wrap:pretty">Unlock rare medallions for streaks, mastery, and secrets.</p>
+        </div>
+      </div>
+
+      <div data-em-reveal="300" style="display:flex;gap:20px;padding:26px 24px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <div aria-hidden="true" style="position:relative;flex:none;width:76px;height:84px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden">
+          <span style="position:absolute;bottom:6px;width:56px;height:56px;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(217,119,43,.3),transparent 70%)"></span>
+          <span style="position:absolute;bottom:18px;width:26px;height:38px;border-radius:50% 50% 42% 42% / 68% 68% 32% 32%;background:linear-gradient(#e8d3a0,#d9772b 58%,#9e2a2b);transform-origin:50% 100%;animation:em-flick 1.7s ease-in-out infinite"></span>
+          <span style="position:absolute;bottom:18px;width:13px;height:22px;border-radius:50% 50% 42% 42% / 68% 68% 32% 32%;background:#f6ecd2;opacity:.85;transform-origin:50% 100%;animation:em-flick 1.1s ease-in-out infinite .3s"></span>
+          <span style="position:absolute;bottom:10px;width:44px;height:8px;background:#2c251d;box-shadow:inset 0 0 0 1px #3a332a"></span>
+          <span style="position:absolute;left:22px;bottom:30px;width:3px;height:3px;border-radius:50%;background:#d9772b;animation:em-ember 4s linear infinite"></span>
+          <span style="position:absolute;left:46px;bottom:34px;width:2px;height:2px;border-radius:50%;background:#e8d3a0;animation:em-ember 5.2s linear infinite 1.6s"></span>
+        </div>
+        <div style="min-width:0">
+          <h3 style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#e8d3a0">Bonfires &amp; Flasks</h3>
+          <p style="margin:0;font-size:16.5px;line-height:1.58;color:#a39787;text-wrap:pretty">Your streak is a living flame. Guard it well.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="ab-stakes" style="max-width:1160px;margin:0 auto;padding:56px 46px 0">
+    <div data-em-reveal="0" style="position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;gap:28px;padding:28px 30px;background:#191411;border:1px solid #3a2320;border-radius:2px">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(70% 120% at 20% 50%,rgba(158,42,43,.16),transparent 70%)"></div>
+      <div style="position:relative;flex:1 1 380px;min-width:0">
+        <h2 id="ab-stakes" style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">The World Pushes Back</h2>
+        <p style="margin:0;font-size:17px;line-height:1.58;color:#a39787;text-wrap:pretty">Neglect your Vigils and your health falls. Fall completely and half your held Runes are lost — until you rise and reclaim them.</p>
+      </div>
+      <div style="position:relative;flex:0 1 260px;min-width:200px">
+        <div data-em-reveal="200" data-em-anim="em-shake-a .5s ease-in-out 3" style="height:12px;background:#100e0c;box-shadow:inset 0 0 0 1px #3a2320;overflow:hidden">
+          <span data-em-reveal="200" data-em-anim="em-health 2.6s cubic-bezier(.3,.8,.2,1) both" style="display:block;height:100%;transform-origin:left center;background:linear-gradient(#b53637,#9e2a2b)"></span>
+        </div>
+        <div data-em-reveal="1900" style="display:flex;align-items:center;gap:8px;margin-top:12px;font-family:'Cinzel',serif;font-weight:600;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:#c9aa71"><svg width="14" height="14" aria-hidden="true"><use href="#i-flame"></use></svg>Rise Again</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="ab-cta" style="max-width:900px;margin:0 auto;padding:92px 46px 96px;text-align:center">
+    <div aria-hidden="true" style="position:relative;height:170px;display:flex;align-items:flex-end;justify-content:center">
+      <span style="position:absolute;bottom:10px;width:300px;height:300px;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(217,119,43,.26),transparent 68%);opacity:{{ ctaGlow }};transition:opacity .5s ease"></span>
+      <span style="position:absolute;bottom:34px;width:86px;height:120px;border-radius:50% 50% 42% 42% / 68% 68% 32% 32%;background:linear-gradient(#e8d3a0,#d9772b 55%,#9e2a2b);transform-origin:50% 100%;animation:em-flick 2.1s ease-in-out infinite;filter:blur(.4px)"></span>
+      <span style="position:absolute;bottom:34px;width:46px;height:76px;border-radius:50% 50% 42% 42% / 68% 68% 32% 32%;background:linear-gradient(#f6ecd2,#e8d3a0 60%,#d9772b);transform-origin:50% 100%;animation:em-flick 1.3s ease-in-out infinite .4s"></span>
+      <span style="position:absolute;bottom:38px;width:18px;height:38px;border-radius:50% 50% 42% 42% / 68% 68% 32% 32%;background:#fff6e2;opacity:.9;transform-origin:50% 100%;animation:em-flick .9s ease-in-out infinite .2s"></span>
+      <span style="position:absolute;bottom:18px;width:150px;height:16px;background:#2c251d;box-shadow:inset 0 0 0 1px #3a332a"></span>
+      <span style="position:absolute;bottom:24px;width:190px;height:10px;background:#241f19;box-shadow:inset 0 0 0 1px #3a332a;transform:rotate(-3deg)"></span>
+      <span style="position:absolute;left:34%;bottom:90px;width:3px;height:3px;border-radius:50%;background:#d9772b;animation:em-ember 5s linear infinite"></span>
+      <span style="position:absolute;left:52%;bottom:96px;width:2px;height:2px;border-radius:50%;background:#e8d3a0;animation:em-ember 6.4s linear infinite 1.2s"></span>
+      <span style="position:absolute;left:64%;bottom:84px;width:3px;height:3px;border-radius:50%;background:#c9aa71;animation:em-ember 7s linear infinite 2.6s"></span>
+      <span style="position:absolute;left:44%;bottom:100px;width:2px;height:2px;border-radius:50%;background:#d9772b;animation:em-ember 5.8s linear infinite 3.4s"></span>
+    </div>
+    <h2 id="ab-cta" data-em-reveal="0" style="margin:34px 0 0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:#e8d3a0;text-wrap:balance">Every Legend Starts With a Single Oath</h2>
+    <p data-em-reveal="90" style="margin:16px 0 30px;font-size:18px;font-style:italic;color:#a39787">Your bonfire awaits.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center">
+      <button type="button" onClick="{{ goCamp }}" onMouseEnter="{{ ctaOn }}" onMouseLeave="{{ ctaOff }}" onFocus="{{ ctaOn }}" onBlur="{{ ctaOff }}" style="font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase;padding:17px 34px;min-height:48px;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer;box-shadow:0 0 0 1px #151210,0 0 26px rgba(201,170,113,.2);transition:transform .22s cubic-bezier(.2,1.4,.4,1)" style-hover="background:linear-gradient(#f1e3bd,#d8bc84);transform:translateY(-2px)" style-active="transform:translateY(1px) scale(.985)" style-focus="outline:2px solid #e8d3a0;outline-offset:3px">Begin the Journey</button>
+      <button type="button" onClick="{{ goCamp }}" style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:16px 20px;min-height:48px;color:#c9aa71;background:none;border:none;border-bottom:1px solid #4a3d2c;cursor:pointer" style-hover="color:#e8d3a0;border-color:#c9aa71" style-focus="outline:2px solid #e8d3a0;outline-offset:3px">Awaken (Log In)</button>
+    </div>
+  </section>
+
+  <footer style="padding:44px 46px 40px;text-align:center;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11.5px;letter-spacing:.12em;color:#6b5836">EMBERWAKE · ALL ART ORIGINAL · ICONS UNDER CC-BY WHERE CREDITED</footer>
+
+  </div>
+  </div>
+</main>
+</sc-if>
+
+<sc-if value="{{ isCamp }}" hint-placeholder-val="{{ true }}">
+<main style="max-width:1560px;margin:0 auto;padding:0 26px 120px">
+<div style="display:flex;gap:24px;align-items:flex-start;padding-top:22px">
+
+<sc-if value="{{ hudRail }}" hint-placeholder-val="{{ false }}">
+  <aside aria-label="Character status" style="flex:none;width:248px;position:sticky;top:78px;display:flex;flex-direction:column;gap:18px;padding:20px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836">
+    <div aria-hidden="true" style="width:100%;height:150px;background:repeating-linear-gradient(38deg,#29231c 0 5px,#231d17 5px 10px);border:1px solid #6b5836;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;color:#6b5836;font-family:ui-monospace,Menlo,monospace;font-size:8px;letter-spacing:.06em">PORTRAIT</div>
+    <div style="text-align:center">
+      <div style="font-family:'Cinzel',serif;font-weight:700;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:#e8d3a0">Halvard</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:#c9aa71;margin-top:2px">{{ title }}</div>
+      <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6b5836;margin-top:5px">Sentinel · Level {{ level }}</div>
+    </div>
+    <div aria-hidden="true" style="display:flex;align-items:center;gap:8px"><span style="flex:1;height:1px;background:#2c251d"></span><svg width="9" height="9" style="color:#4a3d2c"><use href="#i-sigil"></use></svg><span style="flex:1;height:1px;background:#2c251d"></span></div>
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <sc-for list="{{ bars }}" as="b" hint-placeholder-count="3">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+            <span style="display:flex;align-items:center;gap:6px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787"><svg width="11" height="11" aria-hidden="true" style="color:{{ b.color }}"><use href="{{ b.icon }}"></use></svg>{{ b.label }}</span>
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;font-variant-numeric:tabular-nums;color:#e6dcc8">{{ b.readout }}</span>
+          </div>
+          <div role="progressbar" aria-label="{{ b.label }}" aria-valuenow="{{ b.now }}" aria-valuemin="0" aria-valuemax="{{ b.max }}" style="display:flex;gap:2px;height:8px;animation:{{ b.hitAnim }}">
+            <sc-for list="{{ b.segs }}" as="s" hint-placeholder-count="5">
+              <span style="flex:1;background:#100e0c;box-shadow:inset 0 0 0 1px #2c251d;position:relative;overflow:hidden"><span style="position:absolute;inset:0;width:{{ s.w }};background:linear-gradient(180deg,{{ b.colorLight }},{{ b.color }})"></span></span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div aria-hidden="true" style="height:1px;background:#2c251d"></div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px">
+      <svg width="26" height="26" aria-hidden="true" style="color:#d9772b;animation:em-flick 2.6s ease-in-out infinite;transform-origin:50% 100%"><use href="#i-flame"></use></svg>
+      <span style="font-family:'Cinzel',serif;font-weight:700;font-size:26px;color:#e8d3a0;font-variant-numeric:tabular-nums;line-height:1">{{ streak }}</span>
+      <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#6b5836;max-width:56px;line-height:1.3">Bonfires Lit</span>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:center" aria-label="{{ flasksLabel }}">
+      <sc-for list="{{ flaskSlots }}" as="f" hint-placeholder-count="3">
+        <svg width="17" height="17" aria-hidden="true" style="color:{{ f.color }}"><use href="#i-flask"></use></svg>
+      </sc-for>
+    </div>
+    <div aria-hidden="true" style="height:1px;background:#2c251d"></div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div aria-hidden="true" style="flex:none;width:52px;height:52px;border-radius:50%;background:conic-gradient(#c9aa71 {{ ringPct }},#29231c 0);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px #6b5836">
+        <span style="width:42px;height:42px;border-radius:50%;background:#151210;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:16px;color:#e8d3a0">{{ level }}</span>
+      </div>
+      <div style="min-width:0">
+        <div style="font-family:'Cinzel',serif;font-weight:700;font-size:22px;color:#c9aa71;font-variant-numeric:tabular-nums;line-height:1.1">{{ runesText }}</div>
+        <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#6b5836">Runes Held</div>
+      </div>
+    </div>
+    <button type="button" onClick="{{ toggleRavens }}" style="display:flex;align-items:center;justify-content:center;gap:9px;min-height:42px;background:#29231c;border:1px solid #2c251d;border-radius:1px;color:#c9aa71;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0"><svg width="16" height="16" aria-hidden="true"><use href="#i-bell"></use></svg>Ravens · 3</button>
+  </aside>
+</sc-if>
+
+<div style="flex:1;min-width:0">
+<sc-if value="{{ hudTop }}" hint-placeholder-val="{{ true }}">
+  <section aria-label="Character status" style="display:flex;flex-wrap:wrap;align-items:stretch;gap:22px;margin:0 0 26px;padding:20px 22px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836">
+
+    <div style="display:flex;gap:16px;align-items:center;flex:1 1 330px;min-width:0">
+      <div aria-hidden="true" style="flex:none;width:66px;height:78px;background:repeating-linear-gradient(38deg,#29231c 0 5px,#231d17 5px 10px);border:1px solid #6b5836;display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;color:#6b5836;font-family:ui-monospace,Menlo,monospace;font-size:8px;letter-spacing:.06em">PORTRAIT</div>
+      <div style="min-width:0">
+        <div style="font-family:'Cinzel',serif;font-weight:700;font-size:19px;letter-spacing:.1em;text-transform:uppercase;color:#e8d3a0">Halvard</div>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:#c9aa71;margin-top:2px">{{ title }}</div>
+        <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6b5836;margin-top:6px">Sentinel · Level {{ level }}</div>
+      </div>
+    </div>
+
+    <div style="flex:1 1 340px;min-width:260px;display:flex;flex-direction:column;gap:11px">
+      <sc-for list="{{ bars }}" as="b" hint-placeholder-count="3">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+            <span style="display:flex;align-items:center;gap:7px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#a39787"><svg width="12" height="12" aria-hidden="true" style="color:{{ b.color }}"><use href="{{ b.icon }}"></use></svg>{{ b.label }}</span>
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;font-variant-numeric:tabular-nums;color:#e6dcc8">{{ b.readout }}</span>
+          </div>
+          <div role="progressbar" aria-label="{{ b.label }}" aria-valuenow="{{ b.now }}" aria-valuemin="0" aria-valuemax="{{ b.max }}" style="display:flex;align-items:center;gap:5px">
+            <span aria-hidden="true" style="width:5px;height:11px;background:{{ b.color }};opacity:.5;clip-path:polygon(100% 0,100% 100%,0 50%)"></span>
+            <span style="flex:1;display:flex;gap:2px;height:9px;animation:{{ b.hitAnim }}">
+              <sc-for list="{{ b.segs }}" as="s" hint-placeholder-count="5">
+                <span style="flex:1;background:#100e0c;box-shadow:inset 0 0 0 1px #2c251d;position:relative;overflow:hidden"><span style="position:absolute;inset:0;width:{{ s.w }};background:linear-gradient(180deg,{{ b.colorLight }},{{ b.color }})"></span></span>
+              </sc-for>
+            </span>
+            <span aria-hidden="true" style="width:5px;height:11px;background:{{ b.color }};opacity:.5;clip-path:polygon(0 0,0 100%,100% 50%)"></span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="flex:0 1 190px;min-width:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:0 18px;border-left:1px solid #2c251d;border-right:1px solid #2c251d">
+      <div style="display:flex;align-items:center;gap:9px">
+        <svg width="30" height="30" aria-hidden="true" style="color:#d9772b;animation:em-flick 2.6s ease-in-out infinite;transform-origin:50% 100%"><use href="#i-flame"></use></svg>
+        <span style="font-family:'Cinzel',serif;font-weight:700;font-size:30px;color:#e8d3a0;font-variant-numeric:tabular-nums;line-height:1">{{ streak }}</span>
+      </div>
+      <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#6b5836">Bonfires Lit</div>
+      <div style="display:flex;gap:7px;margin-top:3px" aria-label="{{ flasksLabel }}">
+        <sc-for list="{{ flaskSlots }}" as="f" hint-placeholder-count="3">
+          <svg width="17" height="17" aria-hidden="true" style="color:{{ f.color }}"><use href="#i-flask"></use></svg>
+        </sc-for>
+      </div>
+      <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6b5836">Ember Flasks</div>
+    </div>
+
+    <div style="flex:1 1 250px;min-width:220px;display:flex;align-items:center;justify-content:flex-end;gap:18px">
+      <div style="text-align:right">
+        <div style="font-family:'Cinzel',serif;font-weight:700;font-size:27px;color:#c9aa71;font-variant-numeric:tabular-nums;line-height:1.1">{{ runesText }}</div>
+        <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#6b5836">Runes Held</div>
+        <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;color:#a39787;margin-top:7px;font-variant-numeric:tabular-nums">{{ toNext }} to Ascension</div>
+      </div>
+      <div aria-hidden="true" style="flex:none;width:58px;height:58px;border-radius:50%;background:conic-gradient(#c9aa71 {{ ringPct }},#29231c 0);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px #6b5836">
+        <span style="width:46px;height:46px;border-radius:50%;background:#151210;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:17px;color:#e8d3a0">{{ level }}</span>
+      </div>
+      <div style="position:relative">
+        <button type="button" onClick="{{ toggleRavens }}" aria-label="Ravens, 3 unread" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid #2c251d;border-radius:1px;color:#c9aa71;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-bell"></use></svg>
+        </button>
+        <span aria-hidden="true" style="position:absolute;top:-3px;right:-3px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:#d9772b;color:#151210;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span>
+        <sc-if value="{{ ravensOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;right:0;top:52px;width:308px;z-index:60;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:0 18px 46px rgba(0,0,0,.7);animation:em-rise .18s ease both">
+            <div style="padding:13px 16px;border-bottom:1px solid #2c251d;display:flex;justify-content:space-between;align-items:baseline">
+              <span style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">Ravens</span>
+              <button type="button" onClick="{{ toggleRavens }}" style="background:none;border:none;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6b5836;cursor:pointer" style-hover="color:#c9aa71">Dismiss all</button>
+            </div>
+            <sc-for list="{{ ravens }}" as="r" hint-placeholder-count="3">
+              <div style="display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid #231d17">
+                <svg width="16" height="16" aria-hidden="true" style="flex:none;margin-top:2px;color:{{ r.color }}"><use href="{{ r.icon }}"></use></svg>
+                <div style="min-width:0"><div style="font-size:16px;color:#e6dcc8;line-height:1.4">{{ r.text }}</div><div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6b5836;margin-top:4px">{{ r.when }}</div></div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+  <sc-if value="{{ hasCache }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:22px;padding:14px 20px;background:rgba(158,42,43,.12);border:1px solid #9e2a2b;border-left:3px solid #9e2a2b;border-radius:2px">
+      <svg width="19" height="19" aria-hidden="true" style="color:#9e2a2b"><use href="#i-skull"></use></svg>
+      <span style="font-size:17px;color:#e6dcc8;font-style:italic">A Rune Cache of <strong style="font-style:normal;font-family:'Cinzel',serif;color:#e8d3a0">{{ cacheAmount }}</strong> lies where you fell. Complete any quest within 24 hours to reclaim it.</span>
+    </div>
+  </sc-if>
+
+  <div style="display:grid;grid-template-columns:minmax(0,1.68fr) minmax(0,1fr);gap:24px;align-items:start">
+
+    <section aria-label="Quest Log" style="min-width:0;position:relative;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836">
+      <div style="padding:22px 24px 0">
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px">
+          <h1 style="margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:20px;letter-spacing:.18em;text-transform:uppercase;color:#c9aa71">Quest Log</h1>
+          <button type="button" onClick="{{ openForge }}" style="display:flex;align-items:center;gap:9px;min-height:44px;padding:0 20px;font-family:'Cinzel',serif;font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer" style-hover="background:linear-gradient(#f1e3bd,#d8bc84);transform:translateY(-1px)">
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-sword"></use></svg>Forge Quest
+          </button>
+        </div>
+
+        <div role="tablist" aria-label="Quest types" style="display:flex;gap:0;margin:20px 0 0;border-bottom:1px solid #2c251d">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+            <button type="button" role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.go }}" style="display:flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;background:none;border:none;border-bottom:2px solid {{ t.line }};font-family:'Cinzel',serif;font-weight:600;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:{{ t.fg }};cursor:pointer" style-hover="color:#e8d3a0">{{ t.label }}<span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:0;color:#6b5836">{{ t.count }}</span></button>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:16px 0 4px">
+          <span style="display:flex;align-items:center;gap:8px;flex:1 1 180px;min-width:150px;padding:0 12px;height:38px;background:#151210;border:1px solid #2c251d;border-radius:1px;color:#6b5836">
+            <svg width="14" height="14" aria-hidden="true"><use href="#i-search"></use></svg>
+            <input type="search" placeholder="Search the log…" aria-label="Search quests" style="flex:1;min-width:0;background:none;border:none;color:#e6dcc8;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:13px;outline:none">
+          </span>
+          <sc-for list="{{ subFilters }}" as="f" hint-placeholder-count="3">
+            <button type="button" onClick="{{ f.go }}" aria-pressed="{{ f.sel }}" style="height:38px;padding:0 15px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:{{ f.fg }};background:{{ f.bg }};border:1px solid {{ f.bd }};border-radius:1px;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0">{{ f.label }}</button>
+          </sc-for>
+          <span style="flex:1"></span>
+          <span style="display:flex;align-items:center;gap:7px;height:38px;padding:0 13px;border:1px solid #2c251d;border-radius:1px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6b5836">#dawn</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;padding:14px 24px 26px">
+        <sc-for list="{{ visibleQuests }}" as="q" hint-placeholder-count="4">
+          <article style="position:relative;overflow:hidden;display:flex;align-items:stretch;gap:0;background:{{ q.cardBg }};border:1px solid #2c251d;border-left:3px solid {{ q.edge }};border-radius:2px;opacity:{{ q.cardOpacity }};transition:transform .16s ease,border-color .16s ease" style-hover="border-color:#6b5836;transform:translateY(-2px)">
+            <button type="button" onClick="{{ q.primary }}" aria-label="{{ q.primaryLabel }}" style="flex:none;width:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:{{ q.markBg }};border:none;border-right:1px solid #2c251d;color:{{ q.markFg }};cursor:{{ q.cursor }};font-family:'Cinzel',serif;font-size:22px;min-height:88px" style-hover="background:#332b21">
+              {{ q.markGlyph }}
+            </button>
+
+            <div style="flex:1;min-width:0;padding:15px 18px">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+                <svg width="17" height="17" aria-hidden="true" style="flex:none;color:{{ q.attrColor }}"><use href="{{ q.icon }}"></use></svg>
+                <h3 style="margin:0;font-family:'Cinzel',serif;font-weight:600;font-size:15.5px;letter-spacing:.07em;color:{{ q.titleColor }};text-transform:uppercase;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ q.title }}</h3>
+                <span aria-hidden="true" style="flex:none;display:flex;gap:3px;align-items:center">
+                  <sc-for list="{{ q.pipsOn }}" as="p" hint-placeholder-count="2"><span style="width:6px;height:6px;background:#c9aa71;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span></sc-for>
+                  <sc-for list="{{ q.pipsOff }}" as="p" hint-placeholder-count="2"><span style="width:6px;height:6px;background:#3a322a;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)"></span></sc-for>
+                </span>
+                <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#6b5836">{{ q.diff }}</span>
+              </div>
+              <p style="margin:0 0 11px;font-size:16px;line-height:1.5;color:#a39787;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ q.notes }}</p>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11.5px;letter-spacing:.1em;color:#a39787">
+                <span style="display:flex;align-items:center;gap:6px;color:#d9772b"><svg width="13" height="13" aria-hidden="true"><use href="#i-flame"></use></svg><span style="font-variant-numeric:tabular-nums">{{ q.streakText }}</span></span>
+                <span style="color:{{ q.metaColor }}">{{ q.meta }}</span>
+                <span style="flex:1"></span>
+                <span style="display:flex;align-items:center;gap:6px;color:#c9aa71;font-variant-numeric:tabular-nums"><svg width="13" height="13" aria-hidden="true"><use href="#i-sigil"></use></svg>{{ q.runeValue }}</span>
+              </div>
+            </div>
+
+            <sc-if value="{{ q.isOath }}" hint-placeholder-val="{{ false }}">
+              <div style="flex:none;display:flex;flex-direction:column;border-left:1px solid #2c251d">
+                <button type="button" onClick="{{ q.virtue }}" aria-label="{{ q.virtueLabel }}" style="flex:1;width:52px;min-height:44px;background:transparent;border:none;border-bottom:1px solid #2c251d;color:#5b8a3c;font-family:'Cinzel',serif;font-size:19px;cursor:pointer" style-hover="background:rgba(91,138,60,.14);color:#7fb257">+</button>
+                <button type="button" onClick="{{ q.vice }}" aria-label="{{ q.viceLabel }}" style="flex:1;width:52px;min-height:44px;background:transparent;border:none;color:#9e2a2b;font-family:'Cinzel',serif;font-size:19px;cursor:pointer" style-hover="background:rgba(158,42,43,.16);color:#c44">−</button>
+              </div>
+            </sc-if>
+
+            <button type="button" aria-label="Quest actions" style="flex:none;width:40px;background:transparent;border:none;border-left:1px solid #2c251d;color:#4a3d2c;cursor:pointer" style-hover="color:#c9aa71">
+              <svg width="16" height="16" aria-hidden="true"><use href="#i-kebab"></use></svg>
+            </button>
+
+            <sc-if value="{{ q.fx }}" hint-placeholder-val="{{ false }}">
+              <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:5">
+                <span style="position:absolute;inset:0;background:radial-gradient(60% 90% at 30% 50%,rgba(232,211,160,.22),transparent 70%);animation:em-glint .46s ease-out forwards"></span>
+                <svg viewBox="0 0 400 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><line x1="-20" y1="118" x2="420" y2="-18" stroke="#f6ecd2" stroke-width="3" stroke-dasharray="420" style="animation:em-slash .5s cubic-bezier(.2,.8,.2,1) forwards"></line></svg>
+                <span style="position:absolute;left:23%;top:52%;width:4px;height:4px;background:#e8d3a0;animation:em-sp1 .55s ease-out forwards"></span>
+                <span style="position:absolute;left:34%;top:60%;width:3px;height:3px;background:#d9772b;animation:em-sp2 .6s ease-out forwards"></span>
+                <span style="position:absolute;left:45%;top:46%;width:4px;height:4px;background:#f6ecd2;animation:em-sp3 .5s ease-out forwards"></span>
+                <span style="position:absolute;left:56%;top:56%;width:3px;height:3px;background:#d9772b;animation:em-sp4 .62s ease-out forwards"></span>
+                <span style="position:absolute;left:66%;top:44%;width:4px;height:4px;background:#e8d3a0;animation:em-sp5 .52s ease-out forwards"></span>
+                <span style="position:absolute;left:76%;top:58%;width:3px;height:3px;background:#c9aa71;animation:em-sp6 .58s ease-out forwards"></span>
+              </span>
+            </sc-if>
+
+            <sc-if value="{{ q.floatText }}" hint-placeholder-val="{{ false }}">
+              <span aria-hidden="true" style="position:absolute;right:74px;top:26px;z-index:6;font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.14em;color:{{ q.floatColor }};text-shadow:0 0 14px rgba(0,0,0,.9);animation:em-float 1s ease-out forwards;pointer-events:none">{{ q.floatText }}</span>
+            </sc-if>
+          </article>
+        </sc-for>
+
+        <sc-if value="{{ logEmpty }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:30px 0 24px;text-align:center;font-size:18px;font-style:italic;color:#6b5836">The quest log lies empty. The world waits.</p>
+        </sc-if>
+      </div>
+    </section>
+
+    <aside style="min-width:0;display:flex;flex-direction:column;gap:20px">
+      <section aria-label="Attributes" style="padding:20px 20px 22px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <h2 style="margin:0 0 16px;font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#c9aa71">Paths of Mastery</h2>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <sc-for list="{{ attrRows }}" as="a" hint-placeholder-count="5">
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg width="19" height="19" aria-hidden="true" style="flex:none;color:{{ a.color }}"><use href="{{ a.icon }}"></use></svg>
+              <span style="flex:1;min-width:0;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#e6dcc8">{{ a.name }}</span>
+              <span style="flex:0 0 74px;height:6px;background:#100e0c;box-shadow:inset 0 0 0 1px #2c251d;position:relative;overflow:hidden" role="progressbar" aria-label="{{ a.barLabel }}" aria-valuenow="{{ a.pctNum }}" aria-valuemin="0" aria-valuemax="100"><span style="position:absolute;inset:0;width:{{ a.pct }};background:linear-gradient(90deg,#6b5836,#c9aa71)"></span></span>
+              <span style="flex:none;width:24px;text-align:right;font-family:'Cinzel',serif;font-weight:700;font-size:15px;color:#e8d3a0;font-variant-numeric:tabular-nums">{{ a.lvl }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;padding-top:15px;border-top:1px solid #231d17">
+          <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a39787">Unspent points</span>
+          <span style="display:flex;align-items:center;gap:10px"><span style="font-family:'Cinzel',serif;font-weight:700;font-size:17px;color:#d9772b">{{ points }}</span><button type="button" onClick="{{ allocate }}" aria-label="Allocate a stat point" style="width:30px;height:30px;background:#29231c;border:1px solid #6b5836;border-radius:1px;color:#c9aa71;font-family:'Cinzel',serif;font-size:15px;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0">+</button></span>
+        </div>
+      </section>
+
+      <section aria-label="Indulgences" style="padding:20px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <h2 style="margin:0 0 4px;font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#c9aa71">Indulgences</h2>
+        <p style="margin:0 0 16px;font-size:15px;font-style:italic;color:#6b5836">Spend what you have earned.</p>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ indulgences }}" as="i" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:12px;padding:11px 13px;background:#29231c;border:1px solid #2c251d;border-radius:1px">
+              <span style="flex:1;min-width:0;font-size:16px;color:#e6dcc8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ i.title }}</span>
+              <button type="button" onClick="{{ i.buy }}" disabled="{{ i.disabled }}" style="flex:none;min-height:34px;padding:0 12px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11.5px;letter-spacing:.1em;font-variant-numeric:tabular-nums;color:{{ i.fg }};background:{{ i.bg }};border:1px solid {{ i.bd }};border-radius:1px;cursor:{{ i.cursor }}" style-hover="border-color:#c9aa71">{{ i.price }}</button>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section aria-label="Relics" style="padding:20px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:16px">
+          <h2 style="margin:0;font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#c9aa71">Relic Shelf</h2>
+          <button type="button" onClick="{{ goRelics }}" style="background:none;border:none;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6b5836;cursor:pointer" style-hover="color:#c9aa71">Hall of Relics →</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:11px">
+          <sc-for list="{{ shelfRelics }}" as="r" hint-placeholder-count="6">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:13px 6px;background:{{ r.bg }};border:1px solid {{ r.bd }};border-radius:2px;position:relative;overflow:hidden">
+              <svg width="25" height="25" aria-hidden="true" style="color:{{ r.fg }}"><use href="{{ r.icon }}"></use></svg>
+              <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:{{ r.labelFg }};text-align:center;line-height:1.35">{{ r.name }}</span>
+              <sc-if value="{{ r.unlocked }}" hint-placeholder-val="{{ false }}">
+                <span aria-hidden="true" style="position:absolute;top:0;left:0;width:34%;height:210%;background:linear-gradient(90deg,transparent,rgba(246,236,210,.17),transparent);animation:em-shimmer 4.4s linear infinite"></span>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>
+</div>
+</main>
+
+<sc-if value="{{ hudFloat }}" hint-placeholder-val="{{ false }}">
+  <div aria-label="Character status" style="position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:150;display:flex;align-items:center;gap:20px;padding:13px 22px;background:rgba(30,26,22,.97);border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836,0 22px 54px rgba(0,0,0,.72);max-width:calc(100vw - 52px);animation:em-rise .26s ease both">
+    <div style="display:flex;align-items:center;gap:11px">
+      <div aria-hidden="true" style="flex:none;width:34px;height:40px;background:repeating-linear-gradient(38deg,#29231c 0 4px,#231d17 4px 8px);border:1px solid #6b5836"></div>
+      <div>
+        <div style="font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#e8d3a0">Halvard</div>
+        <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#6b5836">Lv {{ level }} · {{ title }}</div>
+      </div>
+    </div>
+    <span aria-hidden="true" style="width:1px;height:38px;background:#2c251d"></span>
+    <div style="display:flex;gap:18px">
+      <sc-for list="{{ bars }}" as="b" hint-placeholder-count="3">
+        <div style="width:126px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+            <span style="display:flex;align-items:center;gap:5px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#a39787"><svg width="10" height="10" aria-hidden="true" style="color:{{ b.color }}"><use href="{{ b.icon }}"></use></svg>{{ b.label }}</span>
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;font-variant-numeric:tabular-nums;color:#e6dcc8">{{ b.readout }}</span>
+          </div>
+          <div role="progressbar" aria-label="{{ b.label }}" aria-valuenow="{{ b.now }}" aria-valuemin="0" aria-valuemax="{{ b.max }}" style="display:flex;gap:2px;height:7px;animation:{{ b.hitAnim }}">
+            <sc-for list="{{ b.segs }}" as="s" hint-placeholder-count="5">
+              <span style="flex:1;background:#100e0c;box-shadow:inset 0 0 0 1px #2c251d;position:relative;overflow:hidden"><span style="position:absolute;inset:0;width:{{ s.w }};background:linear-gradient(180deg,{{ b.colorLight }},{{ b.color }})"></span></span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <span aria-hidden="true" style="width:1px;height:38px;background:#2c251d"></span>
+    <div style="display:flex;align-items:center;gap:9px">
+      <svg width="22" height="22" aria-hidden="true" style="color:#d9772b;animation:em-flick 2.6s ease-in-out infinite;transform-origin:50% 100%"><use href="#i-flame"></use></svg>
+      <span style="font-family:'Cinzel',serif;font-weight:700;font-size:21px;color:#e8d3a0;font-variant-numeric:tabular-nums">{{ streak }}</span>
+      <span style="display:flex;gap:5px" aria-label="{{ flasksLabel }}">
+        <sc-for list="{{ flaskSlots }}" as="f" hint-placeholder-count="3">
+          <svg width="14" height="14" aria-hidden="true" style="color:{{ f.color }}"><use href="#i-flask"></use></svg>
+        </sc-for>
+      </span>
+    </div>
+    <span aria-hidden="true" style="width:1px;height:38px;background:#2c251d"></span>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="text-align:right">
+        <div style="font-family:'Cinzel',serif;font-weight:700;font-size:20px;color:#c9aa71;font-variant-numeric:tabular-nums;line-height:1.1">{{ runesText }}</div>
+        <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#6b5836">Runes</div>
+      </div>
+      <div aria-hidden="true" style="flex:none;width:44px;height:44px;border-radius:50%;background:conic-gradient(#c9aa71 {{ ringPct }},#29231c 0);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px #6b5836">
+        <span style="width:35px;height:35px;border-radius:50%;background:#151210;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:14px;color:#e8d3a0">{{ level }}</span>
+      </div>
+      <button type="button" onClick="{{ toggleRavens }}" aria-label="Ravens, 3 unread" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid #2c251d;border-radius:1px;color:#c9aa71;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0"><svg width="18" height="18" aria-hidden="true"><use href="#i-bell"></use></svg></button>
+    </div>
+  </div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ isFirstSteps }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1340px;margin:0 auto;padding:44px 26px 90px;animation:em-fadein .35s ease both">
+  <p style="margin:0 0 10px;text-align:center;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#d9772b">First Steps · I of III</p>
+  <h1 style="margin:0 0 10px;text-align:center;font-family:'Cinzel',serif;font-weight:700;font-size:30px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">Choose Your Path</h1>
+  <p style="margin:0 auto 40px;max-width:520px;text-align:center;font-size:19px;font-style:italic;color:#a39787;text-wrap:pretty">Five began this road. None finished it. Take up what they left behind.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-bottom:46px">
+    <sc-for list="{{ classes }}" as="c" hint-placeholder-count="5">
+      <button type="button" onClick="{{ c.go }}" aria-pressed="{{ c.sel }}" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:0;padding:0;text-align:center;background:{{ c.bg }};border:1px solid {{ c.bd }};border-radius:2px;cursor:pointer;overflow:hidden;transition:transform .16s ease" style-hover="transform:translateY(-3px);border-color:#c9aa71">
+        <span aria-hidden="true" style="position:relative;display:block;width:100%;height:212px;overflow:hidden;background:repeating-linear-gradient(34deg,#29231c 0 6px,#231d17 6px 12px);border-bottom:1px solid {{ c.bd }}">
+          <sc-if value="{{ c.hasImg }}" hint-placeholder-val="{{ false }}">
+            <img src="{{ c.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 14%;filter:saturate(.82) brightness(.88);transform:scale(1);transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .5s ease" style-hover="transform:scale(1.14);filter:saturate(1.04) brightness(1.06)">
+          </sc-if>
+          <sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">
+            <span style="position:absolute;left:0;right:0;bottom:11px;text-align:center;color:#6b5836;font-family:ui-monospace,Menlo,monospace;font-size:8.5px;letter-spacing:.06em">CLASS ART HERE</span>
+          </sc-if>
+          <span style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,transparent 46%,rgba(21,18,16,.72) 100%)"></span>
+        </span>
+        <span style="display:flex;flex-direction:column;gap:9px;padding:18px 14px 20px;width:100%">
+          <span style="font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:{{ c.nameFg }}">{{ c.name }}</span>
+          <span style="display:flex;align-items:center;justify-content:center;gap:7px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:{{ c.attrColor }}"><svg width="14" height="14" aria-hidden="true"><use href="{{ c.icon }}"></use></svg>+2 {{ c.attr }}</span>
+          <span aria-hidden="true" style="height:1px;background:#2c251d;margin:2px 0"></span>
+          <span style="font-size:15.5px;line-height:1.5;color:#a39787;font-style:italic;text-wrap:pretty">{{ c.item }}</span>
+        </span>
+        <sc-if value="{{ c.sel }}" hint-placeholder-val="{{ false }}">
+          <span aria-hidden="true" style="position:absolute;inset:0;box-shadow:inset 0 0 0 2px #c9aa71,inset 0 0 34px rgba(201,170,113,.14)"></span>
+        </sc-if>
+      </button>
+    </sc-for>
+  </div>
+
+  <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:start">
+    <section style="padding:26px 26px 24px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836">
+      <p style="margin:0 0 6px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#d9772b">II of III</p>
+      <h2 style="margin:0 0 6px;font-family:'Cinzel',serif;font-weight:700;font-size:19px;letter-spacing:.18em;text-transform:uppercase;color:#c9aa71">Swear Your First Oaths</h2>
+      <p style="margin:0 0 22px;font-size:17px;font-style:italic;color:#6b5836">Pick a few. You may rewrite every word of them later.</p>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <sc-for list="{{ starters }}" as="q" hint-placeholder-count="6">
+          <button type="button" onClick="{{ q.go }}" aria-pressed="{{ q.sel }}" style="display:flex;align-items:center;gap:14px;text-align:left;min-height:56px;padding:12px 16px;background:{{ q.bg }};border:1px solid {{ q.bd }};border-left:3px solid {{ q.edge }};border-radius:2px;cursor:pointer" style-hover="border-color:#6b5836">
+            <span aria-hidden="true" style="flex:none;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border:1px solid {{ q.boxBd }};background:{{ q.boxBg }};color:#151210;font-family:'Cinzel',serif;font-size:13px">{{ q.check }}</span>
+            <svg width="18" height="18" aria-hidden="true" style="flex:none;color:{{ q.attrColor }}"><use href="{{ q.icon }}"></use></svg>
+            <span style="flex:1;min-width:0">
+              <span style="display:block;font-family:'Cinzel',serif;font-weight:600;font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:{{ q.titleFg }}">{{ q.title }}</span>
+              <span style="display:block;font-size:15.5px;color:#6b5836;margin-top:3px">{{ q.kind }} · {{ q.diff }}</span>
+            </span>
+            <span style="flex:none;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.1em;color:#c9aa71;font-variant-numeric:tabular-nums">{{ q.runes }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <button type="button" onClick="{{ goCamp }}" style="margin-top:26px;width:100%;min-height:50px;font-family:'Cinzel',serif;font-weight:600;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer" style-hover="background:linear-gradient(#f1e3bd,#d8bc84)">Enter the Camp</button>
+    </section>
+
+    <section style="padding:24px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+      <p style="margin:0 0 6px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#d9772b">III of III</p>
+      <h2 style="margin:0 0 18px;font-family:'Cinzel',serif;font-weight:700;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:#c9aa71">First Steps</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ checklist }}" as="c" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span aria-hidden="true" style="flex:none;width:18px;height:18px;display:flex;align-items:center;justify-content:center;border:1px solid {{ c.bd }};background:{{ c.box }};color:#151210;font-family:'Cinzel',serif;font-size:12px">{{ c.mark }}</span>
+            <span style="flex:1;font-size:16.5px;color:{{ c.fg }};text-decoration:{{ c.deco }}">{{ c.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:20px;padding-top:18px;border-top:1px solid #231d17">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <svg width="20" height="20" aria-hidden="true" style="color:#c9aa71"><use href="#i-sigil"></use></svg>
+          <span style="font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#e8d3a0">Reward</span>
+        </div>
+        <p style="margin:0;font-size:16.5px;color:#a39787;line-height:1.5">100 runes and the relic <em style="color:#c9aa71;font-style:normal">First Light</em>.</p>
+      </div>
+    </section>
+  </div>
+</main>
+</sc-if>
+
+<sc-if value="{{ isChronicle }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1340px;margin:0 auto;padding:44px 26px 90px;animation:em-fadein .35s ease both">
+  <h1 style="margin:0 0 10px;text-align:center;font-family:'Cinzel',serif;font-weight:700;font-size:30px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">The Chronicle</h1>
+  <p style="margin:0 auto 34px;max-width:520px;text-align:center;font-size:19px;font-style:italic;color:#a39787">Every fire you have lit, and every night you let one die.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:26px">
+    <sc-for list="{{ chronStats }}" as="c" hint-placeholder-count="4">
+      <div style="padding:20px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px;text-align:center">
+        <div style="font-family:'Cinzel',serif;font-weight:700;font-size:30px;color:#e8d3a0;font-variant-numeric:tabular-nums;line-height:1">{{ c.value }}</div>
+        <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#6b5836;margin-top:9px">{{ c.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <section style="padding:26px;margin-bottom:26px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:20px">
+      <h2 style="margin:0;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">Bonfires · Last Half-Year</h2>
+      <div style="display:flex;align-items:center;gap:8px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6b5836">
+        <span>Cold</span>
+        <sc-for list="{{ heatLegend }}" as="l" hint-placeholder-count="5"><span aria-hidden="true" style="width:12px;height:12px;background:{{ l.bg }};box-shadow:inset 0 0 0 1px #2c251d"></span></sc-for>
+        <span>Blazing</span>
+      </div>
+    </div>
+    <div role="img" aria-label="Bonfire calendar heatmap for the last twenty-six weeks" style="display:flex;gap:4px;overflow-x:auto;padding-bottom:4px">
+      <sc-for list="{{ heat }}" as="w" hint-placeholder-count="26">
+        <span style="display:flex;flex-direction:column;gap:4px">
+          <sc-for list="{{ w.cells }}" as="c" hint-placeholder-count="7">
+            <span style="width:15px;height:15px;background:{{ c.bg }};box-shadow:inset 0 0 0 1px #241e19"></span>
+          </sc-for>
+        </span>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start">
+    <section style="padding:26px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+      <h2 style="margin:0 0 22px;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">Runes Earned · By Week</h2>
+      <div role="img" aria-label="Runes earned per week, last twelve weeks" style="display:flex;align-items:flex-end;gap:9px;height:170px;padding-bottom:24px;border-bottom:1px solid #2c251d;position:relative">
+        <sc-for list="{{ runeWeeks }}" as="w" hint-placeholder-count="12">
+          <span style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative">
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;color:#6b5836;font-variant-numeric:tabular-nums;margin-bottom:5px">{{ w.value }}</span>
+            <span style="width:100%;height:{{ w.h }};background:linear-gradient(180deg,{{ w.top }},{{ w.bottom }});box-shadow:inset 0 0 0 1px rgba(21,18,16,.6)"></span>
+            <span style="position:absolute;bottom:-19px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9px;letter-spacing:.08em;color:#4a3d2c">{{ w.label }}</span>
+          </span>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="padding:26px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px">
+        <h2 style="margin:0;font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">The Log</h2>
+        <div style="display:flex;gap:6px">
+          <sc-for list="{{ logFilters }}" as="f" hint-placeholder-count="3">
+            <button type="button" onClick="{{ f.go }}" aria-pressed="{{ f.sel }}" style="min-height:32px;padding:0 12px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:{{ f.fg }};background:{{ f.bg }};border:1px solid {{ f.bd }};border-radius:1px;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0">{{ f.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ logRows }}" as="r" hint-placeholder-count="8">
+          <div style="display:flex;align-items:center;gap:13px;padding:12px 2px;border-bottom:1px solid #231d17">
+            <svg width="17" height="17" aria-hidden="true" style="flex:none;color:{{ r.color }}"><use href="{{ r.icon }}"></use></svg>
+            <span style="flex:1;min-width:0;font-size:16.5px;color:#e6dcc8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.title }}</span>
+            <span style="flex:none;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6b5836">{{ r.when }}</span>
+            <span style="flex:none;width:74px;text-align:right;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;font-variant-numeric:tabular-nums;color:{{ r.amountColor }}">{{ r.amount }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+</main>
+</sc-if>
+
+<sc-if value="{{ isMoments }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1180px;margin:0 auto;padding:44px 26px 90px;animation:em-fadein .35s ease both">
+  <h1 style="margin:0 0 10px;text-align:center;font-family:'Cinzel',serif;font-weight:700;font-size:30px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">Moments</h1>
+  <p style="margin:0 auto 40px;max-width:560px;text-align:center;font-size:19px;font-style:italic;color:#a39787;text-wrap:pretty">The four beats the whole app is built to earn. Press one to watch it play.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px">
+    <sc-for list="{{ moments }}" as="m" hint-placeholder-count="4">
+      <section style="display:flex;flex-direction:column;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836;overflow:hidden">
+        <div aria-hidden="true" style="height:156px;display:flex;align-items:center;justify-content:center;background:{{ m.stageBg }};border-bottom:1px solid #2c251d">
+          <span style="font-family:{{ m.stageFont }};font-size:{{ m.stageSize }};letter-spacing:{{ m.stageTrack }};text-transform:uppercase;color:{{ m.stageFg }};text-shadow:0 0 40px {{ m.stageGlow }}">{{ m.stageText }}</span>
+        </div>
+        <div style="padding:22px 24px 24px;display:flex;flex-direction:column;gap:14px;flex:1">
+          <h2 style="margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:17px;letter-spacing:.18em;text-transform:uppercase;color:#e8d3a0">{{ m.name }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.6;color:#a39787;text-wrap:pretty">{{ m.body }}</p>
+          <div style="display:flex;flex-direction:column;gap:7px;padding:14px 16px;background:#191512;border:1px solid #231d17;border-radius:2px">
+            <sc-for list="{{ m.beats }}" as="b" hint-placeholder-count="3">
+              <div style="display:flex;gap:12px;align-items:baseline">
+                <span style="flex:none;width:52px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.1em;color:#6b5836;font-variant-numeric:tabular-nums">{{ b.t }}</span>
+                <span style="flex:1;font-size:15.5px;color:#c9aa71;line-height:1.45">{{ b.what }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <button type="button" onClick="{{ m.play }}" style="margin-top:auto;min-height:48px;font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer" style-hover="background:linear-gradient(#f1e3bd,#d8bc84)">{{ m.cta }}</button>
+        </div>
+      </section>
+    </sc-for>
+  </div>
+
+  <p style="margin:30px auto 0;max-width:640px;text-align:center;font-size:16px;color:#6b5836;line-height:1.6;text-wrap:pretty">Under <em style="color:#a39787;font-style:normal">prefers-reduced-motion</em> — or the Sanctuary override — every beat above collapses to a plain opacity fade: no shake, no particles, no letter-spacing crawl.</p>
+</main>
+</sc-if>
+
+<sc-if value="{{ isMerchant }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1440px;margin:0 auto;padding:26px 26px 70px;animation:em-fadein .35s ease both">
+  <section style="position:relative;overflow:hidden;display:flex;flex-wrap:wrap;gap:34px;align-items:center;padding:30px 34px;margin-bottom:24px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(50% 120% at 14% 50%,rgba(217,119,43,.20),transparent 62%)"></div>
+    <div aria-hidden="true" style="position:relative;flex:none;width:112px;height:132px;background:repeating-linear-gradient(30deg,#29231c 0 6px,#221c16 6px 12px);border:1px solid #6b5836;display:flex;align-items:flex-end;justify-content:center;padding-bottom:9px;color:#6b5836;font-family:ui-monospace,Menlo,monospace;font-size:8.5px;text-align:center;line-height:1.5">hooded<br>merchant</div>
+    <div style="position:relative;flex:1 1 300px;min-width:260px">
+      <h1 style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:700;font-size:26px;letter-spacing:.16em;text-transform:uppercase;color:#e8d3a0">The Wandering Merchant</h1>
+      <p style="margin:0;font-size:19px;font-style:italic;color:#a39787;max-width:520px;text-wrap:pretty">“I keep no ledger of where these came from. Only of what they cost.”</p>
+    </div>
+    <div style="position:relative;text-align:right">
+      <div style="font-family:'Cinzel',serif;font-weight:700;font-size:27px;color:#c9aa71;font-variant-numeric:tabular-nums">{{ runesText }}</div>
+      <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#6b5836">Runes Held</div>
+    </div>
+  </section>
+
+  <h2 style="margin:0 0 14px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6b5836">Featured Wares · rotates at first light</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:34px">
+    <sc-for list="{{ featured }}" as="w" hint-placeholder-count="3">
+      <div style="display:flex;gap:16px;align-items:center;padding:18px;background:linear-gradient(#241e19,#1c1814);border:1px solid {{ w.rarityColor }};border-radius:2px">
+        <svg width="34" height="34" aria-hidden="true" style="flex:none;color:{{ w.rarityColor }}"><use href="{{ w.icon }}"></use></svg>
+        <div style="min-width:0;flex:1">
+          <div style="font-family:'Cinzel',serif;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#e8d3a0">{{ w.name }}</div>
+          <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:{{ w.rarityColor }};margin-top:4px">{{ w.rarity }} · {{ w.slot }}</div>
+          <div style="font-size:15.5px;color:#a39787;margin-top:6px">{{ w.bonus }}</div>
+        </div>
+        <button type="button" onClick="{{ w.buy }}" disabled="{{ w.disabled }}" style="flex:none;min-height:40px;padding:0 14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;font-variant-numeric:tabular-nums;color:{{ w.fg }};background:{{ w.bg }};border:1px solid {{ w.bd }};border-radius:1px;cursor:{{ w.cursor }}" style-hover="border-color:#e8d3a0">{{ w.price }}</button>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start">
+    <nav aria-label="Ware categories" style="padding:18px;background:#1e1a16;border:1px solid #2c251d;border-top:1px solid #6b5836;border-radius:2px">
+      <h2 style="margin:0 0 14px;font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71">Stall</h2>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <sc-for list="{{ shopCats }}" as="c" hint-placeholder-count="7">
+          <button type="button" onClick="{{ c.go }}" aria-pressed="{{ c.sel }}" style="text-align:left;min-height:38px;padding:0 12px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:12px;letter-spacing:.12em;color:{{ c.fg }};background:{{ c.bg }};border:none;border-left:2px solid {{ c.edge }};cursor:pointer" style-hover="color:#e8d3a0">{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <div style="margin-top:18px;padding-top:14px;border-top:1px solid #231d17;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.1em;color:#6b5836;display:flex;flex-direction:column;gap:9px">
+        <span>SORT · RARITY ▾</span><span>☐ HIDE LOCKED</span>
+      </div>
+    </nav>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:16px">
+      <sc-for list="{{ wares }}" as="w" hint-placeholder-count="6">
+        <div style="position:relative;display:flex;flex-direction:column;gap:11px;padding:18px 16px;background:#1e1a16;border:1px solid {{ w.rarityColor }};border-radius:2px;opacity:{{ w.opacity }}">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <svg width="30" height="30" aria-hidden="true" style="color:{{ w.rarityColor }}"><use href="{{ w.icon }}"></use></svg>
+            <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:{{ w.rarityColor }};border:1px solid {{ w.rarityColor }};padding:3px 6px">{{ w.rarity }}</span>
+          </div>
+          <div style="font-family:'Cinzel',serif;font-weight:600;font-size:13.5px;letter-spacing:.07em;text-transform:uppercase;color:#e8d3a0;line-height:1.35">{{ w.name }}</div>
+          <div style="font-size:15.5px;color:#a39787">{{ w.bonus }}</div>
+          <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:{{ w.reqColor }}">{{ w.req }}</div>
+          <button type="button" onClick="{{ w.buy }}" disabled="{{ w.disabled }}" style="margin-top:auto;min-height:42px;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.14em;font-variant-numeric:tabular-nums;color:{{ w.fg }};background:{{ w.bg }};border:1px solid {{ w.bd }};border-radius:1px;cursor:{{ w.cursor }}" style-hover="border-color:#e8d3a0">{{ w.cta }}</button>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</main>
+</sc-if>
+
+<sc-if value="{{ isRelics }}" hint-placeholder-val="{{ false }}">
+<main style="position:relative;max-width:1240px;margin:0 auto;padding:44px 26px 80px;animation:em-fadein .35s ease both">
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url('uploads/pasted-1789221956752-0.png');background-size:cover;background-position:center 28%;background-repeat:no-repeat;opacity:.85"></div>
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(to bottom,rgba(23,19,16,.35),rgba(23,19,16,.55) 45%,rgba(23,19,16,.78) 92%)"></div>
+  <div style="position:relative;z-index:1">
+  <h1 style="margin:0 0 10px;font-family:'Cinzel',serif;font-weight:700;font-size:30px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71;text-align:center">Hall of Relics</h1>
+  <p style="margin:0 auto 12px;max-width:520px;text-align:center;font-size:19px;font-style:italic;color:#a39787">Seven of twenty-eight claimed. The rest wait in the dark.</p>
+  <div aria-hidden="true" style="display:flex;align-items:center;gap:10px;margin:0 auto 46px;max-width:340px"><span style="flex:1;height:1px;background:linear-gradient(to right,transparent,#6b5836)"></span><svg width="11" height="11" style="color:#c9aa71"><use href="#i-sigil"></use></svg><span style="flex:1;height:1px;background:linear-gradient(to left,transparent,#6b5836)"></span></div>
+
+  <sc-for list="{{ relicGroups }}" as="g" hint-placeholder-count="3">
+    <section style="margin-bottom:44px">
+      <h2 style="margin:0 0 18px;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#6b5836;border-bottom:1px solid #231d17;padding-bottom:10px">{{ g.name }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(206px,1fr));gap:18px">
+        <sc-for list="{{ g.items }}" as="r" hint-placeholder-count="4">
+          <div style="position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:12px;padding:26px 18px;background:{{ r.bg }};border:1px solid {{ r.bd }};border-radius:2px;text-align:center">
+            <span style="display:flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;background:{{ r.discBg }};box-shadow:inset 0 0 0 1px {{ r.bd }},0 0 0 1px #151210">
+              <svg width="32" height="32" aria-hidden="true" style="color:{{ r.fg }}"><use href="{{ r.icon }}"></use></svg>
+            </span>
+            <div style="font-family:'Cinzel',serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:{{ r.nameFg }};line-height:1.35">{{ r.name }}</div>
+            <div style="font-size:15.5px;color:#a39787;line-height:1.5;text-wrap:pretty">{{ r.criteria }}</div>
+            <sc-if value="{{ r.locked }}" hint-placeholder-val="{{ true }}">
+              <span style="width:100%;height:5px;background:#100e0c;box-shadow:inset 0 0 0 1px #2c251d;position:relative;overflow:hidden" role="progressbar" aria-label="{{ r.progLabel }}" aria-valuenow="{{ r.progNum }}" aria-valuemin="0" aria-valuemax="100"><span style="position:absolute;inset:0;width:{{ r.prog }};background:#6b5836"></span></span>
+            </sc-if>
+            <sc-if value="{{ r.unlocked }}" hint-placeholder-val="{{ false }}">
+              <div style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#c9aa71">Claimed {{ r.date }}</div>
+              <span aria-hidden="true" style="position:absolute;top:0;left:0;width:26%;height:230%;background:linear-gradient(90deg,transparent,rgba(246,236,210,.15),transparent);animation:em-shimmer 5s linear infinite"></span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-for>
+  </div>
+</main>
+</sc-if>
+
+</div>
+
+<sc-if value="{{ forgeOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Forge Quest" style="position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:26px;background:rgba(10,9,8,.82);animation:em-fadein .2s ease both">
+  <div style="position:relative;width:100%;max-width:600px;max-height:88vh;overflow:auto;padding:34px 34px 28px;background:#1e1a16;border:1px solid #6b5836;border-radius:2px;box-shadow:inset 0 0 0 3px #151210,inset 0 0 0 4px #6b5836,0 30px 80px rgba(0,0,0,.75);animation:em-rise .22s ease both">
+    <sc-if value="{{ filigree }}" hint-placeholder-val="{{ true }}">
+      <svg width="34" height="34" aria-hidden="true" style="position:absolute;left:9px;top:9px;color:#6b5836"><use href="#i-fil"></use></svg>
+    </sc-if>
+    <h2 style="margin:0 0 4px;font-family:'Cinzel',serif;font-weight:700;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:#c9aa71;text-align:center">Forge Quest</h2>
+    <p style="margin:0 0 26px;text-align:center;font-size:16px;font-style:italic;color:#6b5836">Name the thing you mean to conquer.</p>
+
+    <label for="fq-title" style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:7px">Title</label>
+    <input id="fq-title" type="text" aria-describedby="fq-err" placeholder="Rise before the sun" style="width:100%;min-height:46px;padding:12px 14px;margin-bottom:8px;background:#151210;border:1px solid #9e2a2b;border-radius:1px;color:#e6dcc8;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:14px" style-focus="border-color:#e8d3a0;outline:2px solid #e8d3a0;outline-offset:1px">
+    <p id="fq-err" style="margin:0 0 20px;font-size:15px;font-style:italic;color:#c4676a">A quest must bear a name.</p>
+
+    <label for="fq-notes" style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:7px">Notes</label>
+    <textarea id="fq-notes" rows="2" placeholder="Boots by the door the night before." style="width:100%;padding:12px 14px;margin-bottom:22px;background:#151210;border:1px solid #4a3d2c;border-radius:1px;color:#e6dcc8;font-family:'EB Garamond',serif;font-size:16px;resize:vertical" style-focus="border-color:#e8d3a0;outline:2px solid #e8d3a0;outline-offset:1px"></textarea>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:22px">
+      <div>
+        <span style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:8px">Kind</span>
+        <div role="group" aria-label="Quest kind" style="display:flex;gap:0;border:1px solid #4a3d2c;border-radius:1px;overflow:hidden">
+          <sc-for list="{{ forgeKinds }}" as="k" hint-placeholder-count="3">
+            <button type="button" onClick="{{ k.go }}" aria-pressed="{{ k.sel }}" style="flex:1;min-height:42px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:{{ k.fg }};background:{{ k.bg }};border:none;border-right:1px solid #2c251d;cursor:pointer" style-hover="color:#e8d3a0">{{ k.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <span style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:8px">Path</span>
+        <div role="group" aria-label="Attribute" style="display:flex;gap:6px">
+          <sc-for list="{{ forgeAttrs }}" as="a" hint-placeholder-count="5">
+            <button type="button" onClick="{{ a.go }}" aria-label="{{ a.name }}" aria-pressed="{{ a.sel }}" style="flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;background:{{ a.bg }};border:1px solid {{ a.bd }};border-radius:1px;color:{{ a.fg }};cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0"><svg width="19" height="19" aria-hidden="true"><use href="{{ a.icon }}"></use></svg></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <span style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:8px">Difficulty</span>
+    <div role="group" aria-label="Difficulty" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px">
+      <sc-for list="{{ forgeDiffs }}" as="d" hint-placeholder-count="4">
+        <button type="button" onClick="{{ d.go }}" aria-pressed="{{ d.sel }}" style="flex:1 1 110px;min-height:46px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:{{ d.bg }};border:1px solid {{ d.bd }};border-radius:1px;cursor:pointer" style-hover="border-color:#c9aa71">
+          <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:{{ d.fg }}">{{ d.label }}</span>
+          <span style="font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10px;letter-spacing:.1em;color:#6b5836;font-variant-numeric:tabular-nums">{{ d.runes }} runes</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <span style="display:block;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39787;margin-bottom:8px">Vigil schedule</span>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px">
+      <sc-for list="{{ weekdays }}" as="d" hint-placeholder-count="7">
+        <button type="button" onClick="{{ d.go }}" aria-pressed="{{ d.sel }}" aria-label="{{ d.full }}" style="width:46px;height:44px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.06em;color:{{ d.fg }};background:{{ d.bg }};border:1px solid {{ d.bd }};border-radius:1px;cursor:pointer" style-hover="border-color:#c9aa71">{{ d.label }}</button>
+      </sc-for>
+    </div>
+
+    <div aria-hidden="true" style="height:1px;background:#2c251d;margin-bottom:22px"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end;align-items:center">
+      <button type="button" onClick="{{ closeForge }}" style="min-height:46px;padding:0 22px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#a39787;background:transparent;border:1px solid #4a3d2c;border-radius:1px;cursor:pointer" style-hover="border-color:#c9aa71;color:#e8d3a0">Abandon</button>
+      <button type="button" onClick="{{ submitForge }}" style="min-height:46px;padding:0 28px;font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer" style-hover="background:linear-gradient(#f1e3bd,#d8bc84)">Forge</button>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ ascendLevel }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Ascension" onClick="{{ dismissAscend }}" style="position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:rgba(8,7,6,.9);cursor:pointer;animation:em-fadein .3s ease both">
+  <span aria-hidden="true" style="position:absolute;inset:0;background:conic-gradient(from 0deg,transparent 0deg,rgba(232,211,160,.13) 8deg,transparent 16deg,transparent 40deg,rgba(232,211,160,.1) 48deg,transparent 56deg,transparent 90deg,rgba(217,119,43,.12) 98deg,transparent 106deg,transparent 150deg,rgba(232,211,160,.11) 158deg,transparent 166deg,transparent 220deg,rgba(232,211,160,.12) 228deg,transparent 236deg,transparent 290deg,rgba(217,119,43,.1) 298deg,transparent 306deg);animation:em-asc-rays 1.2s ease-out both"></span>
+  <span style="position:relative;font-family:'UnifrakturCook',cursive;font-size:44px;color:#c9aa71;animation:em-fadein .9s ease .2s both">Ascension</span>
+  <span style="position:relative;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(48px,9vw,104px);text-transform:uppercase;color:#f6ecd2;text-shadow:0 0 60px rgba(232,211,160,.4);animation:em-asc-word 1.1s cubic-bezier(.2,.8,.2,1) both">Level {{ ascendLevel }}</span>
+  <span style="position:relative;font-size:20px;font-style:italic;color:#a39787;text-align:center;max-width:440px;padding:0 20px;text-wrap:pretty">One stat point earned. Health restored. An Ember Flask refilled.</span>
+  <span style="position:relative;font-family:'Alegreya Sans',system-ui,sans-serif;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#6b5836">Press anywhere or Esc to continue</span>
+</div>
+</sc-if>
+
+<sc-if value="{{ fallen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Fallen" style="position:fixed;inset:0;z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:rgba(6,5,5,.95);animation:em-fadein 1.1s ease both">
+  <span style="font-family:'Cinzel',serif;font-weight:700;font-size:clamp(54px,10vw,120px);letter-spacing:.3em;text-transform:uppercase;color:#9e2a2b;text-shadow:0 0 70px rgba(158,42,43,.45)">Fallen</span>
+  <span style="font-size:21px;font-style:italic;color:#a39787;text-align:center;max-width:460px;padding:0 20px;text-wrap:pretty">Half your runes lie scattered where you dropped. Complete one quest within a day to reclaim them.</span>
+  <button type="button" onClick="{{ riseAgain }}" style="min-height:50px;padding:0 34px;font-family:'Cinzel',serif;font-weight:600;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#151210;background:linear-gradient(#e8d3a0,#c9aa71);border:1px solid #e8d3a0;border-radius:1px;cursor:pointer" style-hover="background:linear-gradient(#f1e3bd,#d8bc84)">Rise Again</button>
+</div>
+</sc-if>
+
+<div aria-live="polite" aria-atomic="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">{{ announce }}</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;camp&quot;,&quot;gate&quot;,&quot;firststeps&quot;,&quot;chronicle&quot;,&quot;merchant&quot;,&quot;relics&quot;,&quot;moments&quot;],&quot;default&quot;:&quot;camp&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Mockup&quot;},&quot;hudLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;top&quot;,&quot;rail&quot;,&quot;float&quot;],&quot;default&quot;:&quot;top&quot;,&quot;tsType&quot;:&quot;'top'|'rail'|'float'&quot;,&quot;section&quot;:&quot;Mockup&quot;},&quot;ornament&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;heavy&quot;,&quot;standard&quot;,&quot;spare&quot;],&quot;default&quot;:&quot;standard&quot;,&quot;tsType&quot;:&quot;'heavy'|'standard'|'spare'&quot;,&quot;section&quot;:&quot;Mockup&quot;},&quot;reducedMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mockup&quot;}}">
+const BASE = { Trivial: 10, Standard: 25, Hard: 50, Legendary: 100 };
+const ATTR = {
+  Vigor: { icon: 'i-vigor', color: '#9e2a2b', domain: 'sleep · food · water' },
+  Mind: { icon: 'i-mind', color: '#3a6ea5', domain: 'study · reading · craft of thought' },
+  Endurance: { icon: 'i-endurance', color: '#5b8a3c', domain: 'cardio · routine · persistence' },
+  Strength: { icon: 'i-strength', color: '#d9772b', domain: 'iron · lifting · labour' },
+  Dexterity: { icon: 'i-dexterity', color: '#c9aa71', domain: 'art · music · handwork' }
+};
+const TABTYPE = { vigils: 'vigil', oaths: 'oath', bounties: 'bounty' };
+const TYPETAB = { vigil: 'vigils', oath: 'oaths', bounty: 'bounties' };
+const RARITY = { Common: '#7d7368', Rare: '#3a6ea5', Epic: '#8a5fb0', Legendary: '#c9aa71' };
+const lvlCost = n => Math.floor(100 * Math.pow(n, 1.5));
+
+function levelFor(lifetime) {
+  let lvl = 1, spent = 0;
+  while (spent + lvlCost(lvl) <= lifetime) { spent += lvlCost(lvl); lvl++; }
+  return { lvl, floor: spent, need: lvlCost(lvl) };
+}
+function titleFor(s) {
+  if (s >= 100) return 'Sovereign of the Unbroken Dawn';
+  if (s >= 30) return 'Knight of the Long Vigil';
+  if (s >= 14) return 'Warden of the Flame';
+  if (s >= 7) return 'Oathkeeper';
+  if (s >= 3) return 'Ember-Bearer';
+  return 'Nameless Wanderer';
+}
+const segs = (now, max) => {
+  const n = Math.max(1, Math.ceil(max / 10)), per = max / n, out = [];
+  for (let i = 0; i < n; i++) {
+    const f = Math.min(1, Math.max(0, (now - i * per) / per));
+    out.push({ w: (f * 100).toFixed(1) + '%' });
+  }
+  return out;
+};
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      screen: props.startScreen || 'camp',
+      hud: props.hudLayout || 'top', cls: 4, picks: [1, 1, 0, 1, 0, 0], logFilter: 0,
+      tab: 'vigils', sub: 0, cat: 0, ravensOpen: false, forgeOpen: false,
+      forgeKind: 0, forgeAttr: 1, forgeDiff: 1, days: [1, 1, 1, 1, 1, 0, 0],
+      held: 1284, lifetime: 4200, displayRunes: 1284,
+      health: 41, focus: 18, flasks: 2, streak: 12, points: 1,
+      cache: 0, ascendLevel: 0, fallen: false, shake: 0, hit: 0, announce: '',
+      attrs: { Vigor: { lvl: 7, pct: 62 }, Mind: { lvl: 9, pct: 38 }, Endurance: { lvl: 5, pct: 74 }, Strength: { lvl: 6, pct: 21 }, Dexterity: { lvl: 4, pct: 55 } },
+      fx: {}, floats: {},
+      quests: [
+        { id: 'q1', type: 'vigil', title: 'Kindle the Morning', notes: 'Boots by the door the night before.', attr: 'Vigor', diff: 'Standard', streak: 12, meta: 'Due today', done: false },
+        { id: 'q2', type: 'vigil', title: 'Hour of the Scholar', notes: 'One chapter, no screens in the room.', attr: 'Mind', diff: 'Hard', streak: 5, meta: 'Due today', done: false },
+        { id: 'q3', type: 'vigil', title: 'The Iron Vigil', notes: 'Squats, presses, the long carry.', attr: 'Strength', diff: 'Legendary', streak: 2, meta: 'Due today', done: false },
+        { id: 'q4', type: 'vigil', title: 'Walk the Long Road', notes: 'Five thousand paces before dusk.', attr: 'Endurance', diff: 'Standard', streak: 31, meta: 'Conquered', done: true },
+        { id: 'q5', type: 'oath', title: 'Drink of the Well', notes: 'A cup at every waking hour.', attr: 'Vigor', diff: 'Trivial', streak: 18, meta: 'Strong', done: false, strength: 'strong' },
+        { id: 'q6', type: 'oath', title: 'Practise the Strings', notes: 'Twenty minutes, scales first.', attr: 'Dexterity', diff: 'Standard', streak: 4, meta: 'Holding', done: false, strength: 'mid' },
+        { id: 'q7', type: 'oath', title: 'Sup on Ash', notes: 'Late sugar, and the sleep it steals.', attr: 'Vigor', diff: 'Standard', streak: 0, meta: 'Neglected · Vice', done: false, strength: 'weak', vice: true },
+        { id: 'q8', type: 'bounty', title: 'Mend the Broken Blade', notes: 'Regrind the edge, oil the tang.', attr: 'Dexterity', diff: 'Hard', streak: 0, meta: 'Checklist 2/4 · due in 2 days', done: false },
+        { id: 'q9', type: 'bounty', title: 'Letters to the Keep', notes: 'Three replies owed since the thaw.', attr: 'Mind', diff: 'Standard', streak: 0, meta: 'Due tomorrow', done: false }
+      ]
+    };
+    Object.assign(this.state, { demo: 'idle', demoRunes: 1213, demoStr: 2, hoverAttr: -1, ctaHot: false });
+    this._timers = [];
+  }
+  setupMotion() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (!this._io) {
+      this._io = new IntersectionObserver(es => es.forEach(en => {
+        if (en.intersectionRatio < .2 && en.boundingClientRect.top > 0) return;
+        this._io.unobserve(en.target);
+        this.applyReveal(en.target);
+      }), { threshold: [0, .2, .5] });
+      this._pending = new Set();
+      this._sweep = () => {
+        this._pending.forEach(el => {
+          if (!el.isConnected) { this._pending.delete(el); return; }
+          const r = el.getBoundingClientRect();
+          if (r.top < (window.innerHeight || 800) * .92) {
+            this._io.unobserve(el);
+            this._pending.delete(el);
+            this.applyReveal(el);
+          }
+        });
+      };
+      window.addEventListener('scroll', this._sweep, { passive: true });
+      window.addEventListener('resize', this._sweep, { passive: true });
+    }
+    document.querySelectorAll('[data-em-reveal]').forEach(el => {
+      if (el.dataset.emSeen) return;
+      el.dataset.emSeen = '1';
+      if (this.calm) return;
+      const r = el.getBoundingClientRect();
+      const vh = window.innerHeight || 800;
+      if (r.top < vh * .92 && r.bottom > 0) { this.applyReveal(el); return; }
+      el.style.opacity = '0';
+      this._pending.add(el);
+      this._io.observe(el);
+    });
+    document.querySelectorAll('[data-em-demo]').forEach(el => {
+      if (el.dataset.emDemoSeen) return;
+      el.dataset.emDemoSeen = '1';
+      const io = new IntersectionObserver(es => es.forEach(en => {
+        if (en.intersectionRatio < .25) return;
+        io.disconnect();
+        if (this.state.demo === 'idle') this.playDemo();
+      }), { threshold: [0, .25] });
+      io.observe(el);
+      this._demoIo = io;
+    });
+  }
+  applyReveal(el) {
+    if (this._pending) this._pending.delete(el);
+    el.style.opacity = '';
+    el.style.animation = el.dataset.emAnim || 'em-rise .7s cubic-bezier(.2,.7,.3,1) both';
+    el.style.animationDelay = (+el.dataset.emReveal || 0) + 'ms';
+  }
+  playDemo() {
+    const d = this.state.demo;
+    if (d === 'strike' || d === 'burst') return;
+    if (this.calm) { this.setState({ demo: 'done', demoRunes: 1240, demoStr: 3, announce: 'Quest complete. 27 runes earned. Strength increased.' }); return; }
+    this.setState({ demo: 'strike', demoRunes: 1213, demoStr: 2 });
+    this.later(() => { this.setState({ demo: 'burst', demoStr: 3 }); this.rollDemo(1240); }, 300);
+    this.later(() => this.setState({ demo: 'done', announce: 'Quest complete. 27 runes earned. Strength increased.' }), 1250);
+  }
+  replayDemo() {
+    this.setState({ demo: 'idle', demoRunes: 1213, demoStr: 2 });
+    this.later(() => this.playDemo(), 140);
+  }
+  rollDemo(to) {
+    const from = this.state.demoRunes, t0 = performance.now(), dur = 700;
+    const step = now => {
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      this.setState({ demoRunes: Math.round(from + (to - from) * e) });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  componentDidUpdate() { this.setupMotion(); }
+  componentDidMount() {
+    this.setupMotion();
+    this._key = e => {
+      if (e.key !== 'Escape') return;
+      if (this.state.ascendLevel) this.setState({ ascendLevel: 0 });
+      else if (this.state.forgeOpen) this.setState({ forgeOpen: false });
+      else if (this.state.ravensOpen) this.setState({ ravensOpen: false });
+    };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this._key);
+    if (this._sweep) { window.removeEventListener('scroll', this._sweep); window.removeEventListener('resize', this._sweep); }
+    this._timers.forEach(clearTimeout);
+  }
+  later(fn, ms) { this._timers.push(setTimeout(fn, ms)); }
+  get calm() { return !!this.props.reducedMotion; }
+
+  rollRunes(to) {
+    const from = this.state.displayRunes, t0 = performance.now(), dur = this.calm ? 1 : 620;
+    const step = now => {
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      this.setState({ displayRunes: Math.round(from + (to - from) * e) });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  complete(id) {
+    const q = this.state.quests.find(x => x.id === id);
+    if (!q || q.done || this.state.fx[id]) return;
+    const mult = 1 + 0.02 * Math.min(q.streak, 30);
+    const runes = Math.round(BASE[q.diff] * mult * (1 + Math.random() * 0.15));
+    const held = this.state.held + runes, lifetime = this.state.lifetime + runes;
+    const before = levelFor(this.state.lifetime).lvl, after = levelFor(lifetime).lvl;
+    const attrs = { ...this.state.attrs };
+    const a = attrs[q.attr];
+    let pct = a.pct + 14, lvl = a.lvl;
+    if (pct >= 100) { pct -= 100; lvl += 1; }
+    attrs[q.attr] = { lvl, pct };
+
+    this.setState({
+      fx: { ...this.state.fx, [id]: true },
+      floats: { ...this.state.floats, [id]: { text: '+' + runes + ' RUNES', color: '#e8d3a0' } },
+      shake: this.calm ? this.state.shake : this.state.shake + 1,
+      held, lifetime, attrs, cache: 0,
+      health: Math.min(50, this.state.health + 1),
+      focus: Math.min(30, this.state.focus + 2),
+      announce: 'Quest complete. ' + runes + ' runes earned. ' + q.attr + ' increased.'
+    });
+    this.rollRunes(held);
+    this.later(() => {
+      this.setState(s => ({
+        quests: s.quests.map(x => x.id === id ? { ...x, done: true, streak: x.streak + 1, meta: 'Conquered' } : x),
+        fx: { ...s.fx, [id]: false }
+      }));
+    }, this.calm ? 160 : 520);
+    this.later(() => this.setState(s => ({ floats: { ...s.floats, [id]: null } })), 1000);
+    if (after > before) this.later(() => this.setState({ ascendLevel: after, health: 50, flasks: Math.min(3, this.state.flasks + 1), points: this.state.points + 1 }), this.calm ? 220 : 620);
+  }
+
+  vice(id) {
+    const dmg = 6, health = Math.max(0, this.state.health - dmg);
+    this.setState({
+      health, hit: this.state.hit + 1,
+      shake: this.calm ? this.state.shake : this.state.shake + 1,
+      floats: { ...this.state.floats, [id]: { text: '−' + dmg + ' HEALTH', color: '#c4676a' } },
+      announce: 'Vice recorded. ' + dmg + ' health lost.'
+    });
+    this.later(() => this.setState(s => ({ floats: { ...s.floats, [id]: null } })), 1000);
+    if (health === 0) this.later(() => this.setState({ fallen: true }), 700);
+  }
+
+  virtue(id) {
+    const q = this.state.quests.find(x => x.id === id);
+    if (!q) return;
+    this.setState(s => ({ quests: s.quests.map(x => x.id === id ? { ...x, streak: x.streak + 1, strength: 'strong', meta: 'Strong' } : x) }));
+    this.complete(id);
+  }
+
+  spend(amount, label) {
+    if (amount > this.state.held) return;
+    const held = this.state.held - amount;
+    this.setState({ held, announce: label + ' purchased for ' + amount + ' runes.' });
+    this.rollRunes(held);
+  }
+
+  renderVals() {
+    const s = this.state, P = this.props;
+    const lv = levelFor(s.lifetime);
+    const filigree = (P.ornament || 'standard') !== 'spare';
+    const nav = [['gate', 'The Gate'], ['firststeps', 'First Steps'], ['camp', 'The Camp'], ['chronicle', 'Chronicle'], ['merchant', 'Merchant'], ['relics', 'Relics'], ['moments', 'Moments']];
+    const dueVigils = s.quests.filter(q => q.type === 'vigil');
+    const stamina = Math.round(dueVigils.filter(q => q.done).length / dueVigils.length * 100);
+
+    const barDef = [
+      { label: 'Health', icon: '#i-vigor', color: '#9e2a2b', colorLight: '#c4676a', now: s.health, max: 50, hit: true },
+      { label: 'Focus', icon: '#i-mind', color: '#3a6ea5', colorLight: '#6f9fcf', now: s.focus, max: 30 },
+      { label: 'Stamina', icon: '#i-endurance', color: '#5b8a3c', colorLight: '#8cb868', now: stamina, max: 100 }
+    ];
+
+    const subsFor = {
+      vigils: ['All', 'Due', 'Not Due'], oaths: ['All', 'Weak', 'Strong'], bounties: ['Active', 'Scheduled', 'Completed']
+    }[s.tab];
+
+    const counts = { vigils: 0, oaths: 0, bounties: 0 };
+    s.quests.forEach(q => { counts[q.type + 's'] += 1; });
+
+    const list = s.quests.filter(q => q.type === s.tab.slice(0, -1)).map(q => {
+      const meta = ATTR[q.attr];
+      const isOath = q.type === 'oath';
+      const edge = q.done ? '#3a322a' : isOath ? (q.strength === 'strong' ? '#c9aa71' : q.strength === 'mid' ? '#8a6f3f' : '#9e2a2b') : meta.color;
+      const pips = { Trivial: 1, Standard: 2, Hard: 3, Legendary: 4 }[q.diff];
+      const mult = 1 + 0.02 * Math.min(q.streak, 30);
+      const fl = s.floats[q.id];
+      return {
+        id: q.id, title: q.title, notes: q.notes, diff: q.diff, icon: meta.icon,
+        attrColor: q.done ? '#4a3d2c' : meta.color,
+        titleColor: q.done ? '#6b5836' : '#e8d3a0',
+        cardBg: q.done ? '#191512' : '#241e19',
+        cardOpacity: q.done ? 0.62 : 1,
+        edge, isOath,
+        markBg: q.done ? '#141110' : '#29231c',
+        markFg: q.done ? '#6b5836' : '#c9aa71',
+        markGlyph: q.done ? '✠' : isOath ? '✧' : '◇',
+        cursor: q.done || isOath ? 'default' : 'pointer',
+        primary: isOath ? () => {} : () => this.complete(q.id),
+        primaryLabel: q.done ? q.title + ' — conquered' : 'Complete ' + q.title,
+        virtue: () => this.virtue(q.id), vice: () => this.vice(q.id),
+        virtueLabel: 'Record a Virtue for ' + q.title, viceLabel: 'Record a Vice for ' + q.title,
+        pipsOn: Array.from({ length: pips }, (_, i) => ({ i })),
+        pipsOff: Array.from({ length: 4 - pips }, (_, i) => ({ i })),
+        streakText: q.type === 'bounty' ? '—' : q.streak + ' lit',
+        meta: q.meta, metaColor: q.done ? '#5b8a3c' : q.vice ? '#c4676a' : '#a39787',
+        runeValue: Math.round(BASE[q.diff] * mult) + ' runes',
+        fx: !!s.fx[q.id], floatText: fl ? fl.text : '', floatColor: fl ? fl.color : '#e8d3a0'
+      };
+    });
+
+    const relicDefs = [
+      { g: 'First Steps', n: 'First Light', c: 'Complete the First Steps checklist.', i: '#i-sigil', u: '12 Mar', p: 100 },
+      { g: 'First Steps', n: 'First Blood', c: 'Complete your first quest.', i: '#i-skull', u: '12 Mar', p: 100 },
+      { g: 'First Steps', n: "Merchant's Favour", c: 'Buy your first ware.', i: '#i-ring', u: '14 Mar', p: 100 },
+      { g: 'First Steps', n: 'Oathsworn', c: 'Keep 10 Oaths at once.', i: '#i-seal', p: 70 },
+      { g: 'Bonfires', n: 'Seven Flames', c: 'Keep the bonfire lit 7 days.', i: '#i-chalice', u: '19 Mar', p: 100 },
+      { g: 'Bonfires', n: 'Unbroken', c: 'Keep the bonfire lit 30 days.', i: '#i-flame', p: 40 },
+      { g: 'Bonfires', n: 'Rise Again', c: 'Reclaim a Rune Cache after falling.', i: '#i-flask', p: 0 },
+      { g: 'Mastery', n: 'Master of Mind', c: 'Raise Mind to level 10.', i: '#i-mind', p: 90 },
+      { g: 'Mastery', n: 'Centurion', c: 'Complete 100 quests.', i: '#i-sword', u: '2 Apr', p: 100 },
+      { g: 'Mastery', n: 'Ironbound', c: 'Raise Strength to level 10.', i: '#i-strength', p: 60 },
+      { g: 'Treasures', n: 'Hoarder', c: 'Hold 5,000 runes at once.', i: '#i-scroll', p: 26 },
+      { g: 'Treasures', n: 'Fully Arrayed', c: 'Equip every armour slot.', i: '#i-shield', u: '8 Apr', p: 100 },
+      { g: 'Secrets', n: '???', c: 'Its criteria are not yet known to you.', i: '#i-seal', p: 0 },
+      { g: 'Secrets', n: '???', c: 'Its criteria are not yet known to you.', i: '#i-seal', p: 0 }
+    ];
+    const groupNames = ['First Steps', 'Bonfires', 'Mastery', 'Treasures', 'Secrets'];
+    const relicGroups = groupNames.map(g => ({
+      name: g,
+      items: relicDefs.filter(r => r.g === g).map(r => ({
+        name: r.n, criteria: r.c, icon: r.i, date: r.u || '',
+        unlocked: !!r.u, locked: !r.u,
+        bg: r.u ? 'linear-gradient(#2a2318,#1e1a14)' : '#1a1714',
+        bd: r.u ? '#c9aa71' : '#2c251d',
+        discBg: r.u ? 'radial-gradient(#3a2f1d,#221c14)' : '#211c17',
+        fg: r.u ? '#e8d3a0' : '#4a3d2c',
+        nameFg: r.u ? '#e8d3a0' : '#6b5836',
+        prog: r.p + '%', progNum: r.p, progLabel: r.n + ' progress'
+      }))
+    }));
+
+    const shelf = [
+      { n: 'Seven Flames', i: '#i-chalice', u: true }, { n: 'Centurion', i: '#i-sword', u: true }, { n: 'Fully Arrayed', i: '#i-shield', u: true },
+      { n: 'Unbroken', i: '#i-flame', u: false }, { n: 'Master of Mind', i: '#i-mind', u: false }, { n: 'Oathsworn', i: '#i-seal', u: false }
+    ].map(r => ({
+      name: r.n, icon: r.i, unlocked: r.u,
+      bg: r.u ? 'linear-gradient(#2a2318,#1e1a14)' : '#1a1714',
+      bd: r.u ? '#6b5836' : '#2c251d',
+      fg: r.u ? '#e8d3a0' : '#4a3d2c',
+      labelFg: r.u ? '#c9aa71' : '#4a3d2c'
+    }));
+
+    const wareDefs = [
+      { n: 'Iron Warblade', r: 'Common', s: 'Main Hand', b: '+2 Strength', p: 180, i: '#i-sword', req: 1 },
+      { n: 'Bulwark of the Pale Gate', r: 'Rare', s: 'Off Hand', b: '+3 Endurance · +1 Vigor', p: 540, i: '#i-shield', req: 4 },
+      { n: 'Circlet of Nine Thoughts', r: 'Epic', s: 'Head', b: '+5 Mind', p: 900, i: '#i-ring', req: 6 },
+      { n: "Sovereign's Edge", r: 'Legendary', s: 'Main Hand', b: '+8 Strength · +2 Dexterity', p: 2400, i: '#i-sword', req: 10 },
+      { n: 'Ember Flask', r: 'Common', s: 'Consumable', b: 'Refills one flask', p: 200, i: '#i-flask', req: 1 },
+      { n: 'Blessing of Plenty', r: 'Rare', s: 'Consumable', b: '+25% runes for one hour', p: 300, i: '#i-scroll', req: 3 }
+    ];
+    const wares = wareDefs.map(w => {
+      const locked = lv.lvl < w.req, poor = s.held < w.p, off = locked || poor;
+      return {
+        name: w.n, rarity: w.r, slot: w.s, bonus: w.b, icon: w.i, rarityColor: RARITY[w.r],
+        price: w.p.toLocaleString(), opacity: locked ? 0.5 : 1,
+        req: locked ? 'Requires level ' + w.req : 'Level ' + w.req + ' · ' + w.s,
+        reqColor: locked ? '#9e2a2b' : '#6b5836',
+        cta: locked ? 'Sealed' : poor ? 'Not enough runes' : w.p.toLocaleString() + ' runes',
+        disabled: off, cursor: off ? 'not-allowed' : 'pointer',
+        fg: off ? '#6b5836' : '#151210', bg: off ? 'transparent' : 'linear-gradient(#e8d3a0,#c9aa71)',
+        bd: off ? '#2c251d' : '#e8d3a0', buy: () => this.spend(w.p, w.n)
+      };
+    });
+    const featured = [wareDefs[2], wareDefs[4], wareDefs[1]].map(w => {
+      const poor = s.held < w.p;
+      return {
+        name: w.n, rarity: w.r, slot: w.s, bonus: w.b, icon: w.i, rarityColor: RARITY[w.r],
+        price: w.p.toLocaleString(), disabled: poor, cursor: poor ? 'not-allowed' : 'pointer',
+        fg: poor ? '#6b5836' : '#151210', bg: poor ? 'transparent' : 'linear-gradient(#e8d3a0,#c9aa71)',
+        bd: poor ? '#2c251d' : '#e8d3a0', buy: () => this.spend(w.p, w.n)
+      };
+    });
+
+    const indulgenceDefs = [['One episode, no more', 150], ['A long bath, door shut', 260], ['The good coffee', 90], ['A day with no quests', 1500]];
+
+    const HEAT = ['#1a1714', '#3f2c18', '#7a4a1c', '#b8691f', '#e89a3c'];
+    const heat = [];
+    for (let w = 0; w < 26; w++) {
+      const cells = [];
+      for (let d = 0; d < 7; d++) {
+        const t = w * 7 + d;
+        const v = Math.sin(t * 1.7) * 0.5 + Math.cos(t * 0.43) * 0.5 + (w / 26) * 0.35;
+        let k = v > 0.72 ? 4 : v > 0.34 ? 3 : v > -0.02 ? 2 : v > -0.46 ? 1 : 0;
+        if (t > 178) k = 0;
+        cells.push({ bg: HEAT[k] });
+      }
+      heat.push({ cells });
+    }
+    const rw = [210, 340, 180, 425, 560, 300, 480, 640, 515, 700, 390, 610];
+    const rwMax = Math.max.apply(null, rw);
+    const classDefs = [
+      ['Knight', 'Strength', 'A notched longsword, kept sharp by habit alone.', 'uploads/pasted-1789214197998-0.png'],
+      ['Scholar', 'Mind', 'A candle that has outlasted three owners.', 'uploads/pasted-1789213857226-0.png'],
+      ['Ranger', 'Dexterity', 'A yew shortbow, restrung with gut and patience.', 'uploads/pasted-1789214270970-0.png'],
+      ['Pilgrim', 'Vigor', 'A walking staff worn smooth at the grip.', 'uploads/pasted-1789214326200-0.png'],
+      ['Sentinel', 'Endurance', 'A tower shield, dented on the inside.', 'uploads/pasted-1789214388306-0.png']
+    ];
+    const starterDefs = [
+      ['Kindle the Morning', 'Vigil', 'Standard', 'Vigor'],
+      ['Hour of the Scholar', 'Vigil', 'Hard', 'Mind'],
+      ['Drink of the Well', 'Oath', 'Trivial', 'Vigor'],
+      ['Walk the Long Road', 'Vigil', 'Standard', 'Endurance'],
+      ['The Iron Vigil', 'Vigil', 'Legendary', 'Strength'],
+      ['Practise the Strings', 'Oath', 'Standard', 'Dexterity']
+    ];
+    const checkDefs = [
+      ['Forge your first quest', true], ['Complete a quest', true], ['Allocate a stat point', true],
+      ['Buy from the Merchant', false], ['Equip an item', false]
+    ];
+    const logDefs = [
+      ['Walk the Long Road', 'Endurance', 'today', '+38', true],
+      ['Drink of the Well', 'Vigor', 'today', '+13', true],
+      ['Sup on Ash', 'Vigor', 'today', '−6 health', false],
+      ['Hour of the Scholar', 'Mind', 'yesterday', '+57', true],
+      ['Kindle the Morning', 'Vigor', 'yesterday', '+31', true],
+      ['The Iron Vigil', 'Strength', 'yesterday', '+112', true],
+      ['Mend the Broken Blade', 'Dexterity', '2 days ago', '+55', true],
+      ['Practise the Strings', 'Dexterity', '2 days ago', '+27', true]
+    ];
+    const momentDefs = [
+      {
+        name: 'Ascension', cta: 'Play Ascension',
+        body: 'Crossing a rune threshold stops the world. One stat point, health restored, a flask refilled — then straight back to the log.',
+        stageBg: 'radial-gradient(60% 100% at 50% 50%,rgba(232,211,160,.16),#141110 72%)',
+        stageText: 'Level 7', stageFont: "'Cinzel',serif", stageSize: '40px', stageTrack: '.3em', stageFg: '#f6ecd2', stageGlow: 'rgba(232,211,160,.4)',
+        beats: [{ t: '0ms', what: 'World dims, golden rays bloom from centre' }, { t: '200ms', what: 'Blackletter “Ascension” fades up' }, { t: '300ms', what: 'Level numeral unblurs, letter-spacing expands to .34em' }, { t: '1.1s', what: 'Stat-point prompt; Esc or click dismisses' }],
+        play: () => this.setState({ ascendLevel: lv.lvl + 1 })
+      },
+      {
+        name: 'Fallen', cta: 'Play Fallen',
+        body: 'Health at zero. Half of your held runes drop into a cache that decays in a day. Level, items and lifetime runes are never touched.',
+        stageBg: 'radial-gradient(60% 100% at 50% 50%,rgba(158,42,43,.2),#0d0b0a 74%)',
+        stageText: 'Fallen', stageFont: "'Cinzel',serif", stageSize: '40px', stageTrack: '.34em', stageFg: '#9e2a2b', stageGlow: 'rgba(158,42,43,.5)',
+        beats: [{ t: '0ms', what: 'Slow desaturation and fade to black over 1.1s' }, { t: '600ms', what: 'Ember-red title resolves' }, { t: '1.1s', what: '“Rise Again” — health full, cache marker enters the HUD' }],
+        play: () => this.setState({ fallen: true })
+      },
+      {
+        name: 'The Clash', cta: 'Play in the Camp',
+        body: 'The one you feel a hundred times a day. A completion has to read as a won fight in about half a second.',
+        stageBg: 'linear-gradient(115deg,#241e19 0%,#3a3026 48%,#241e19 100%)',
+        stageText: '+27 Runes', stageFont: "'Cinzel',serif", stageSize: '28px', stageTrack: '.2em', stageFg: '#e8d3a0', stageGlow: 'rgba(232,211,160,.3)',
+        beats: [{ t: '0ms', what: 'Card compresses to 0.98, gold slash sweeps the diagonal' }, { t: '120ms', what: 'Glint flash, six to ten sparks, 2px screen shake' }, { t: '520ms', what: 'Card settles engraved and dimmed; rune counter rolls up' }],
+        play: () => { this.setState({ screen: 'camp', tab: 'vigils' }); this.later(() => this.complete('q2'), 260); }
+      },
+      {
+        name: 'Relic Unlocked', cta: 'Open the Hall',
+        body: 'A medallion flips from cold stone to struck gold and keeps a slow shimmer for as long as it sits in the Hall.',
+        stageBg: 'radial-gradient(60% 100% at 50% 50%,rgba(201,170,113,.14),#171310 74%)',
+        stageText: 'Seven Flames', stageFont: "'Cinzel',serif", stageSize: '24px', stageTrack: '.18em', stageFg: '#c9aa71', stageGlow: 'rgba(201,170,113,.3)',
+        beats: [{ t: '0ms', what: 'Medallion rotates on Y, stone face to gold' }, { t: '340ms', what: 'Shimmer sweep crosses the disc' }, { t: '400ms', what: 'Raven toast slides in, name in blackletter' }],
+        play: () => this.setState({ screen: 'relics', announce: 'Relic unlocked. Seven Flames.' })
+      }
+    ];
+
+    return {
+      filigree,
+      isGate: s.screen === 'gate', isCamp: s.screen === 'camp', isMerchant: s.screen === 'merchant', isRelics: s.screen === 'relics',
+      goCamp: () => this.setState({ screen: 'camp' }), goRelics: () => this.setState({ screen: 'relics' }),
+      navItems: nav.map(([k, label]) => ({
+        label, cur: s.screen === k ? 'page' : undefined, go: () => this.setState({ screen: k, ravensOpen: false }),
+        bg: s.screen === k ? '#29231c' : 'transparent',
+        bd: s.screen === k ? '#6b5836' : 'transparent',
+        fg: s.screen === k ? '#e8d3a0' : '#a39787'
+      })),
+      shakeAnim: s.shake === 0 || this.calm ? 'none' : (s.shake % 2 ? 'em-shake-a .2s ease' : 'em-shake-b .2s ease'),
+      level: lv.lvl, title: titleFor(s.streak), streak: s.streak, points: s.points,
+      runesText: s.displayRunes.toLocaleString(),
+      toNext: (lv.floor + lv.need - s.lifetime).toLocaleString() + ' runes',
+      ringPct: Math.round((s.lifetime - lv.floor) / lv.need * 100) + '%',
+      bars: barDef.map(b => ({
+        label: b.label, icon: b.icon, color: b.color, colorLight: b.colorLight,
+        now: b.now, max: b.max, readout: b.label === 'Stamina' ? b.now + '%' : b.now + ' / ' + b.max,
+        segs: segs(b.now, b.max),
+        hitAnim: b.hit && s.hit && !this.calm ? (s.hit % 2 ? 'em-hit-a .4s ease' : 'em-hit-b .4s ease') : 'none'
+      })),
+      flaskSlots: [0, 1, 2].map(i => ({ color: i < s.flasks ? '#d9772b' : '#3a322a' })),
+      flasksLabel: s.flasks + ' of 3 Ember Flasks remain',
+      hasCache: s.cache > 0, cacheAmount: s.cache.toLocaleString() + ' runes',
+      ravensOpen: s.ravensOpen, toggleRavens: () => this.setState({ ravensOpen: !s.ravensOpen }),
+      ravens: [
+        { text: 'The bonfire has burned twelve days. An Ember Flask was granted.', when: 'this morning', icon: '#i-flame', color: '#d9772b' },
+        { text: 'Relic claimed — “Fully Arrayed”.', when: 'yesterday', icon: '#i-seal', color: '#c9aa71' },
+        { text: 'First Steps: two tasks remain.', when: '3 days ago', icon: '#i-scroll', color: '#a39787' }
+      ],
+      tabs: [['vigils', 'Vigils'], ['oaths', 'Oaths'], ['bounties', 'Bounties']].map(([k, label]) => ({
+        label, count: counts[k], sel: s.tab === k, go: () => this.setState({ tab: k, sub: 0 }),
+        line: s.tab === k ? '#c9aa71' : 'transparent', fg: s.tab === k ? '#e8d3a0' : '#6b5836'
+      })),
+      subFilters: subsFor.map((label, i) => ({
+        label, sel: s.sub === i, go: () => this.setState({ sub: i }),
+        bg: s.sub === i ? '#29231c' : 'transparent',
+        bd: s.sub === i ? '#6b5836' : '#2c251d',
+        fg: s.sub === i ? '#e8d3a0' : '#a39787'
+      })),
+      visibleQuests: list, logEmpty: list.length === 0,
+      attrRows: Object.keys(ATTR).map(name => ({
+        name, icon: ATTR[name].icon, color: ATTR[name].color,
+        lvl: s.attrs[name].lvl, pct: s.attrs[name].pct + '%', pctNum: s.attrs[name].pct,
+        barLabel: name + ' progress to next level'
+      })),
+      attrList: Object.keys(ATTR).map(name => ({ name, icon: ATTR[name].icon, domain: ATTR[name].domain })),
+      allocate: () => s.points > 0 && this.setState({ points: s.points - 1, announce: 'Stat point allocated.' }),
+      indulgences: indulgenceDefs.map(([title, price]) => {
+        const poor = s.held < price;
+        return {
+          title, price: price.toLocaleString(), disabled: poor, cursor: poor ? 'not-allowed' : 'pointer',
+          fg: poor ? '#6b5836' : '#c9aa71', bg: poor ? 'transparent' : '#332b21',
+          bd: poor ? '#2c251d' : '#6b5836', buy: () => this.spend(price, title)
+        };
+      }),
+      shelfRelics: shelf, relicGroups, wares, featured,
+      shopCats: ['Weapons', 'Armor', 'Shields', 'Rings', 'Consumables', 'Realms', 'Titles & Frames'].map((label, i) => ({
+        label, sel: s.cat === i, go: () => this.setState({ cat: i }),
+        fg: s.cat === i ? '#e8d3a0' : '#a39787',
+        bg: s.cat === i ? '#29231c' : 'transparent',
+        edge: s.cat === i ? '#c9aa71' : 'transparent'
+      })),
+      demoIdle: s.demo === 'idle',
+      demoStrike: s.demo === 'strike' || s.demo === 'burst',
+      demoFloat: s.demo === 'burst',
+      demoDone: s.demo === 'done',
+      demoRunes: s.demoRunes.toLocaleString(),
+      demoStrNum: s.demoStr,
+      demoCardTransform: (s.demo === 'strike' || s.demo === 'burst') ? 'scale(.985)' : 'none',
+      demoSegs: [0, 1, 2, 3].map(i => ({ bg: i < s.demoStr ? (i === 2 && s.demoStr === 3 ? '#6ba545' : '#5b8a3c') : '#100e0c' })),
+      playDemo: () => this.playDemo(),
+      replayDemo: () => this.replayDemo(),
+      masteryPaths: [
+        ['Vigor', '#i-vigor', 'sleep · nutrition · hydration', 'Kindle the Morning · Drink of the Well · Sleep by Eleven', 72],
+        ['Mind', '#i-mind', 'study · reading · coding', 'Hour of the Scholar · Letters to the Keep', 64],
+        ['Endurance', '#i-endurance', 'cardio · routines · consistency', 'Walk the Long Road · Run at Dawn', 58],
+        ['Strength', '#i-strength', 'gym · lifting · training', 'The Iron Vigil · Carry the Stones', 46],
+        ['Dexterity', '#i-dexterity', 'art · music · crafts', 'Practise the Strings · Mend the Broken Blade', 35]
+      ].map(([name, icon, domain, examples, v], i) => ({
+        name, icon, domain, examples,
+        hot: s.hoverAttr === i,
+        glow: s.hoverAttr === i ? '0 0 22px rgba(201,170,113,.34)' : '0 0 0 rgba(0,0,0,0)',
+        barW: (s.hoverAttr === i ? v : 0) + '%',
+        enter: () => this.setState({ hoverAttr: i }),
+        leave: () => this.setState({ hoverAttr: -1 })
+      })),
+      ctaGlow: s.ctaHot ? 1 : .5,
+      ctaOn: () => this.setState({ ctaHot: true }),
+      ctaOff: () => this.setState({ ctaHot: false }),
+      journeySteps: [
+        { num: 'I', title: 'Swear Oaths', body: 'Name the habits you mean to keep, and the ones you mean to break.', icon: '#i-scroll' },
+        { num: 'II', title: 'Earn Runes', body: 'Every completion is a small victory, weighed and paid by the world.', icon: '#i-sigil' },
+        { num: 'III', title: 'Keep It Lit', body: 'Miss a day and a flask drains. Run dry, and the bonfire goes out.', icon: '#i-flame' }
+      ],
+      forgeOpen: s.forgeOpen,
+      openForge: () => this.setState({ forgeOpen: true }),
+      closeForge: () => this.setState({ forgeOpen: false }),
+      submitForge: () => this.setState({ forgeOpen: false, announce: 'Quest forged.' }),
+      forgeKinds: ['Vigil', 'Oath', 'Bounty'].map((label, i) => ({
+        label, sel: s.forgeKind === i, go: () => this.setState({ forgeKind: i }),
+        fg: s.forgeKind === i ? '#e8d3a0' : '#6b5836', bg: s.forgeKind === i ? '#332b21' : 'transparent'
+      })),
+      forgeAttrs: Object.keys(ATTR).map((name, i) => ({
+        name, icon: ATTR[name].icon, sel: s.forgeAttr === i, go: () => this.setState({ forgeAttr: i }),
+        bg: s.forgeAttr === i ? '#332b21' : 'transparent',
+        bd: s.forgeAttr === i ? '#c9aa71' : '#2c251d',
+        fg: s.forgeAttr === i ? '#e8d3a0' : '#6b5836'
+      })),
+      forgeDiffs: Object.keys(BASE).map((label, i) => ({
+        label, runes: BASE[label], sel: s.forgeDiff === i, go: () => this.setState({ forgeDiff: i }),
+        bg: s.forgeDiff === i ? '#332b21' : 'transparent',
+        bd: s.forgeDiff === i ? '#c9aa71' : '#2c251d',
+        fg: s.forgeDiff === i ? '#e8d3a0' : '#a39787'
+      })),
+      weekdays: ['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((label, i) => ({
+        label, full: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][i],
+        sel: !!s.days[i],
+        go: () => this.setState(st => { const d = st.days.slice(); d[i] = d[i] ? 0 : 1; return { days: d }; }),
+        bg: s.days[i] ? '#332b21' : 'transparent',
+        bd: s.days[i] ? '#c9aa71' : '#2c251d',
+        fg: s.days[i] ? '#e8d3a0' : '#6b5836'
+      })),
+      ascendLevel: s.ascendLevel, dismissAscend: () => this.setState({ ascendLevel: 0 }),
+      fallen: s.fallen,
+      riseAgain: () => this.setState({ fallen: false, health: 50, cache: Math.floor(s.held / 2), held: s.held - Math.floor(s.held / 2), displayRunes: s.held - Math.floor(s.held / 2), announce: 'Risen. Half your runes lie in a cache.' }),
+      isFirstSteps: s.screen === 'firststeps', isChronicle: s.screen === 'chronicle', isMoments: s.screen === 'moments',
+      hudTop: s.hud === 'top', hudRail: s.hud === 'rail', hudFloat: s.hud === 'float',
+      hudOptions: [['top', 'Bar'], ['rail', 'Rail'], ['float', 'Float']].map(([k, label]) => ({
+        label, sel: s.hud === k, go: () => this.setState({ hud: k }),
+        fg: s.hud === k ? '#e8d3a0' : '#6b5836', bg: s.hud === k ? '#332b21' : 'transparent'
+      })),
+      classes: classDefs.map(([name, attr, item, img], i) => ({
+        name, attr, item, img, hasImg: !!img, noImg: !img,
+        icon: ATTR[attr].icon, attrColor: ATTR[attr].color,
+        sel: s.cls === i, go: () => this.setState({ cls: i }),
+        bg: s.cls === i ? 'linear-gradient(#2a2318,#1e1a14)' : '#1a1714',
+        bd: s.cls === i ? '#c9aa71' : '#2c251d',
+        nameFg: s.cls === i ? '#e8d3a0' : '#c9aa71'
+      })),
+      starters: starterDefs.map(([title, kind, diff, attr], i) => {
+        const on = !!s.picks[i];
+        return {
+          title, kind, diff, icon: ATTR[attr].icon, attrColor: on ? ATTR[attr].color : '#4a3d2c',
+          runes: BASE[diff] + ' runes', sel: on,
+          go: () => this.setState(st => { const p = st.picks.slice(); p[i] = p[i] ? 0 : 1; return { picks: p }; }),
+          bg: on ? '#241e19' : '#191512', bd: on ? '#4a3d2c' : '#231d17',
+          edge: on ? ATTR[attr].color : '#2c251d',
+          boxBd: on ? '#c9aa71' : '#4a3d2c', boxBg: on ? '#c9aa71' : 'transparent',
+          check: on ? '✓' : '', titleFg: on ? '#e8d3a0' : '#6b5836'
+        };
+      }),
+      checklist: checkDefs.map(([label, done]) => ({
+        label, mark: done ? '✓' : '', box: done ? '#c9aa71' : 'transparent',
+        bd: done ? '#c9aa71' : '#4a3d2c', fg: done ? '#6b5836' : '#e6dcc8',
+        deco: done ? 'line-through' : 'none'
+      })),
+      chronStats: [
+        { value: '31', label: 'Longest bonfire' }, { value: '148', label: 'Quests conquered' },
+        { value: '4,200', label: 'Lifetime runes' }, { value: '62', label: 'Days awake' }
+      ],
+      heat, heatLegend: HEAT.map(bg => ({ bg })),
+      runeWeeks: rw.map((value, i) => ({
+        value, label: 'W' + (i + 1), h: Math.round(value / rwMax * 82) + '%',
+        top: value === rwMax ? '#e89a3c' : '#c9aa71', bottom: value === rwMax ? '#b8691f' : '#6b5836'
+      })),
+      logFilters: ['All', 'Virtues', 'Vices'].map((label, i) => ({
+        label, sel: s.logFilter === i, go: () => this.setState({ logFilter: i }),
+        fg: s.logFilter === i ? '#e8d3a0' : '#a39787',
+        bg: s.logFilter === i ? '#29231c' : 'transparent',
+        bd: s.logFilter === i ? '#6b5836' : '#2c251d'
+      })),
+      logRows: logDefs.filter(r => s.logFilter === 0 || (s.logFilter === 1 ? r[4] : !r[4])).map(([title, attr, when, amount, good]) => ({
+        title, when, amount, icon: ATTR[attr].icon, color: ATTR[attr].color,
+        amountColor: good ? '#c9aa71' : '#c4676a'
+      })),
+      moments: momentDefs,
+      announce: s.announce
+    };
+  }
+}
+</script>
+</body>
+</html>
