@@ -1,0 +1,253 @@
+// Emberwake — database schema
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------- enums ----------
+
+enum QuestType {
+  VIGIL // scheduled, repeats on a cadence
+  OATH // habit, +/- direction
+  BOUNTY // one-off, optional checklist + due date
+}
+
+enum Difficulty {
+  TRIVIAL
+  STANDARD
+  HARD
+  LEGENDARY
+}
+
+enum Attribute {
+  VIGOR
+  MIND
+  ENDURANCE
+  STRENGTH
+  DEXTERITY
+}
+
+enum Direction {
+  VIRTUE
+  VICE
+}
+
+enum ItemSlot {
+  HEAD
+  CHEST
+  HANDS
+  LEGS
+  MAIN_HAND
+  OFF_HAND
+  RING
+  TALISMAN
+  REALM // cosmetic background
+  FRAME // cosmetic portrait frame
+}
+
+enum Rarity {
+  COMMON
+  RARE
+  EPIC
+  LEGENDARY
+}
+
+// ---------- core ----------
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String?
+  username     String   @unique
+  displayName  String
+  timezone     String   @default("UTC")
+  dayStartHour Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  character   Character?
+  quests      Quest[]
+  completions QuestCompletion[]
+  dayLogs     DayLog[]
+  inventory   InventoryItem[]
+  relics      UserRelic[]
+  indulgences Indulgence[]
+  ravens      Raven[]
+}
+
+model Character {
+  id     String @id @default(cuid())
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @unique
+
+  class            String
+  level            Int       @default(1)
+  lifetimeRunes    Int       @default(0) // level derives from this — spending never lowers it
+  runesHeld        Int       @default(0) // spendable currency
+  health           Int       @default(50)
+  focus            Int       @default(0)
+  emberFlasks      Int       @default(3)
+  statPoints       Int       @default(0)
+  currentStreak    Int       @default(0)
+  longestStreak    Int       @default(0)
+  lastActiveDay    DateTime?
+  lastRolloverAt   DateTime  @default(now())
+  runeCache        Int       @default(0) // runes lost on Fallen, reclaimable within 24h
+  runeCacheExpires DateTime?
+  restingUntil     DateTime? // pauses damage/streak loss
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attributes AttributeStat[]
+}
+
+model AttributeStat {
+  id          String    @id @default(cuid())
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  characterId String
+  attribute   Attribute
+  xp          Int       @default(0)
+  level       Int       @default(1)
+  allocated   Int       @default(0)
+
+  @@unique([characterId, attribute])
+}
+
+// ---------- quests ----------
+
+model Quest {
+  id     String @id @default(cuid())
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  type       QuestType
+  title      String
+  notes      String?
+  attribute  Attribute
+  difficulty Difficulty
+  schedule   Json? // Vigils: weekdays / every-N-days + start date
+  dueDate    DateTime? // Bounties
+  checklist  Json? // Bounties: [{ text, done }]
+  tags       String[]
+  position   Int        @default(0)
+  strength   Int        @default(0) // Oaths: neglected -> strong, drives card edge color
+  streak     Int        @default(0) // per-quest streak (Vigils)
+  archived   Boolean    @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  completions QuestCompletion[]
+
+  @@index([userId, type, archived])
+}
+
+// permanent history log — one row per completion/undo-reversal
+model QuestCompletion {
+  id             String    @id @default(cuid())
+  quest          Quest     @relation(fields: [questId], references: [id], onDelete: Cascade)
+  questId        String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  direction      Direction
+  completedAt    DateTime  @default(now())
+  dayKey         String // YYYY-MM-DD in the user's timezone/day-start
+  runesAwarded   Int
+  xpAwarded      Int
+  idempotencyKey String    @unique
+
+  @@index([userId, dayKey])
+}
+
+// one row per user per calendar day — powers the Chronicle heatmap and day-rollover
+model DayLog {
+  id             String  @id @default(cuid())
+  user           User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  dayKey         String
+  completedCount Int     @default(0)
+  missedVigils   Int     @default(0)
+  flaskUsed      Boolean @default(false)
+  bonfireLit     Boolean @default(false)
+
+  @@unique([userId, dayKey])
+}
+
+// ---------- merchant & inventory ----------
+
+model Item {
+  id          String   @id @default(cuid())
+  name        String
+  slot        ItemSlot
+  rarity      Rarity
+  price       Int
+  levelReq    Int      @default(1)
+  statBonuses Json? // { attribute: Attribute, amount: number }[]
+  iconKey     String
+
+  inventory InventoryItem[]
+}
+
+model InventoryItem {
+  id       String  @id @default(cuid())
+  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String
+  item     Item    @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId   String
+  quantity Int     @default(1)
+  equipped Boolean @default(false)
+
+  @@unique([userId, itemId])
+}
+
+model Indulgence {
+  id     String @id @default(cuid())
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  title  String
+  price  Int
+}
+
+// ---------- relics ----------
+
+model Relic {
+  id       String  @id @default(cuid())
+  key      String  @unique // stable slug, e.g. "first-blood"
+  group    String // First Steps | Bonfires | Mastery | Treasures | Secrets
+  name     String
+  criteria Json
+  hidden   Boolean @default(false) // Secrets: name withheld until unlocked
+  iconKey  String
+
+  unlocks UserRelic[]
+}
+
+model UserRelic {
+  id         String   @id @default(cuid())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  relic      Relic    @relation(fields: [relicKey], references: [key], onDelete: Cascade)
+  relicKey   String
+  unlockedAt DateTime @default(now())
+
+  @@unique([userId, relicKey])
+}
+
+// ---------- notifications ----------
+
+model Raven {
+  id        String    @id @default(cuid())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  type      String
+  payload   Json
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+}
