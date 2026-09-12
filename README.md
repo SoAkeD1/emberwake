@@ -4,7 +4,28 @@ A habit tracker themed as a grim, dark-fantasy Soulslike RPG. Habits become ques
 
 Built for the Life RPG project brief — see [`docs/`](./docs) for the full design spec and glossary.
 
-**Live demo:** _add your deployed URL here before submitting_
+**Live demo:** [emberwake-delta.vercel.app](https://emberwake-delta.vercel.app)
+
+## Screenshots
+
+![The Gate — Emberwake's landing screen](docs/screenshots/gate-hero.png)
+
+*The Gate is the only screen a stranger can see. "Begin the Journey" and "Awaken" are real sign-up/log-in, backed by Postgres — not a mockup toggle.*
+
+![The Gate's About section, explaining the core loop](docs/screenshots/gate-about.png)
+
+*Scrolling The Gate explains the loop before anyone commits: a real habit becomes a quest, judged in the same dark-fantasy terms as the rest of the app.*
+
+## Our approach to the problem statement
+
+The brief asked for a "Life RPG" — take real habits and make them feel like a game worth returning to, not a to-do list with a fresh coat of paint. Two beliefs shaped how we read that:
+
+1. **Gamification fails when nothing is at stake.** A points counter that only ever goes up isn't a game. So a missed day in Emberwake actually costs something: it drains an Ember Flask (you only carry 3), and running out lets the streak's Bonfire go out and damages your Health — mirrored, non-euphemistic consequences instead of a guilt-trip notification. Runes and attributes level on deliberately non-linear curves (see [`docs/design-spec.md`](./docs/design-spec.md)) so early progress feels fast and later progress feels earned, the way an RPG's does.
+2. **The "game" has to be real, not a skin.** So the RPG layer isn't client-side decoration on top of a normal habit list — the plan (see "Game systems" in the design spec) is for every reward to be computed server-side from a habit's actual completion, with the client only ever sending intent, so progress can't just be typed into `localStorage`.
+
+That same bar — real, not a demo of real — is why the app is gated behind actual accounts rather than a click-through prototype: [`src/proxy.ts`](./src/proxy.ts) turns away every signed-out visitor at every screen but The Gate, sign-up/log-in hit a real Postgres database (Auth.js + Prisma, see below), and the result is deployed at a public URL instead of only ever running on one laptop.
+
+The one place we're still short of that bar, in the interest of being honest about it: the Camp/Merchant/Relics/Chronicle screens still read from client-side sample data rather than each user's own row in the database (see "Status" below) — the account system is real, the game state behind it isn't wired to it yet.
 
 ## Status
 
